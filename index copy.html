@@ -1,0 +1,544 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureBaby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --page-bg: #f3f1f1;
+        --panel-bg: #f5f1f1;
+        --text: #1a1f4d;
+        --muted: #6d728b;
+        --pink-1: #ff69ae;
+        --pink-2: #ff86bf;
+        --purple-1: #6d49ec;
+        --purple-2: #a071ff;
+        --gold: #f5be44;
+        --gold-soft: #f8e7b0;
+        --bell: #1e233d;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: #fffafa;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        color: var(--text);
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .phone-shell {
+        width: min(100%, 1000px);
+        min-height: 100vh;
+        background: transparent;
+        padding: 10px 0 20px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+        gap: 10px;
+        padding: 6px 16px 10px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .logo-wrap {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #ff5fa0, #7e4ee5);
+        box-shadow: 0 10px 16px rgba(126, 78, 229, 0.12);
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      .baby-logo {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .brand-name {
+        font-weight: 700;
+        letter-spacing: -0.06em;
+        font-size: clamp(2.1rem, 5vw, 3rem);
+        line-height: 0.9;
+        color: var(--text);
+        font-family: 'Open Sans', Arial, sans-serif;
+        text-rendering: optimizeLegibility;
+      }
+
+      .svg-icon {
+        width: 42px;
+        height: 42px;
+        display: block;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-left: auto;
+      }
+
+      .pro-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 9px 18px 9px 14px;
+        background: linear-gradient(90deg, #f3e7c8, #f3ecfb);
+        border-radius: 16px;
+        font-weight: 700;
+        font-size: clamp(1rem, 2.6vw, 1.35rem);
+        letter-spacing: -0.04em;
+        color: #7b5ae5;
+        box-shadow: inset 0 0 0 1px rgba(123, 90, 229, 0.04);
+        font-family: 'Open Sans', Arial, sans-serif;
+      }
+
+      .crown-img {
+        width: 22px;
+        height: 22px;
+        display: block;
+        object-fit: contain;
+        transform: translateY(-1px);
+        flex-shrink: 0;
+      }
+
+      .bell-wrap {
+        width: auto;
+        height: auto;
+        border: none;
+        border-radius: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        flex-shrink: 0;
+        background: transparent;
+      }
+
+      .bell-img {
+        width: 30px;
+        height: 30px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .content {
+        padding-top: 18px;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 540px;
+        overflow: hidden;
+        padding: 22px 30px 24px;
+        border-radius: 0;
+        background: #fffafa url('home_image.png') no-repeat right center / 66% auto;
+        background-blend-mode: multiply;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 1;
+        width: min(44%, 430px);
+      }
+
+      .hero-title {
+        margin: 0;
+        font-size: clamp(2rem, 4.1vw, 3.45rem);
+        line-height: 1.08;
+        letter-spacing: -0.055em;
+        font-weight: 800;
+      }
+
+      .hero-title span {
+        display: block;
+        background: linear-gradient(90deg, #ff4f91, #7647ed);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-description {
+        max-width: 360px;
+        margin: 20px 0 22px;
+        color: var(--muted);
+        font-size: clamp(0.9rem, 1.45vw, 1.12rem);
+        line-height: 1.5;
+        font-weight: 600;
+      }
+
+      .feature-list {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 27px;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        color: var(--text);
+        font-size: clamp(0.84rem, 1.25vw, 1.02rem);
+        font-weight: 600;
+      }
+
+      .feature-icon {
+        width: 32px;
+        height: 32px;
+        display: grid;
+        place-items: center;
+        flex: 0 0 32px;
+        border-radius: 50%;
+        background: #fff0f7;
+        color: #ff5b9b;
+        font-size: 1.12rem;
+      }
+
+      .feature:nth-child(2) .feature-icon,
+      .feature:nth-child(5) .feature-icon {
+        background: #f4edff;
+        color: #965dff;
+      }
+
+      .feature:nth-child(3) .feature-icon {
+        background: #eef8ff;
+        color: #1594dd;
+      }
+
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        min-width: 270px;
+        padding: 14px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(100deg, #ff629a, #7547ee);
+        color: #fff;
+        box-shadow: 0 12px 22px rgba(195, 86, 191, 0.25);
+        font: inherit;
+        font-size: clamp(0.9rem, 1.45vw, 1.1rem);
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .hero-cta-icon {
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+
+      .hero-cta-arrow {
+        font-size: 1.7rem;
+        line-height: 0.7;
+      }
+
+      .hero-note {
+        margin: 17px 0 0 42px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .quick-links {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        margin: 14px 30px 28px;
+        padding: 24px 18px 25px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 12px 28px rgba(231, 187, 222, 0.14);
+      }
+
+      .quick-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 0;
+        text-align: center;
+      }
+
+      .quick-link-icon {
+        width: 72px;
+        height: 72px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 12px;
+        border: 2px solid #ffd9e8;
+        border-radius: 50%;
+        background: #fff5fa;
+        color: #ef4e8c;
+        font-size: 2.2rem;
+        line-height: 1;
+      }
+
+      .quick-link:nth-child(2) .quick-link-icon {
+        border-color: #e1d2ff;
+        background: #f5efff;
+        color: #7547ed;
+      }
+
+      .quick-link:nth-child(3) .quick-link-icon {
+        border-color: #cceaff;
+        background: #eff9ff;
+        color: #168fd9;
+      }
+
+      .quick-link:nth-child(4) .quick-link-icon {
+        border-color: #d9efdf;
+        background: #f1fbf3;
+        color: #52ad7d;
+      }
+
+      .quick-link-title {
+        color: var(--text);
+        font-size: clamp(0.8rem, 1.25vw, 1rem);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .quick-link-text {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: clamp(0.72rem, 1.1vw, 0.9rem);
+        white-space: nowrap;
+      }
+
+      @media (max-width: 760px) {
+        .phone-shell {
+          width: 100%;
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .topbar {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
+        .brand {
+          gap: 10px;
+        }
+
+        .logo-wrap {
+          width: 48px;
+          height: 48px;
+        }
+
+        .brand-name {
+          font-size: clamp(1.8rem, 6vw, 2.7rem);
+        }
+
+        .header-actions {
+          gap: 8px;
+        }
+
+        .content {
+          padding-top: 8px;
+        }
+
+        .hero {
+          min-height: 560px;
+          padding: 24px 18px;
+          border-radius: 0;
+          background-position: right -100px center;
+          background-size: 85% auto;
+        }
+
+        .hero-copy {
+          width: 65%;
+        }
+
+        .hero-title {
+          font-size: clamp(1.8rem, 8vw, 2.8rem);
+        }
+
+        .hero-description {
+          margin-top: 15px;
+          margin-bottom: 18px;
+          font-size: 0.86rem;
+        }
+
+        .feature-list {
+          gap: 9px;
+          margin-bottom: 21px;
+        }
+
+        .feature-icon {
+          width: 30px;
+          height: 30px;
+          flex-basis: 30px;
+          font-size: 1rem;
+        }
+
+        .feature {
+          gap: 9px;
+          font-size: 0.8rem;
+        }
+
+        .hero-cta {
+          width: 100%;
+          min-width: 0;
+          padding: 12px 18px;
+          font-size: 0.92rem;
+        }
+
+        .hero-note {
+          margin-left: 0;
+          text-align: center;
+          font-size: 0.82rem;
+        }
+
+        .quick-links {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px 10px;
+          margin: 18px 10px 24px;
+          padding: 22px 10px;
+          border-radius: 22px;
+        }
+
+        .quick-link-icon {
+          width: 58px;
+          height: 58px;
+          margin-bottom: 9px;
+          font-size: 1.8rem;
+        }
+
+        .quick-link-title,
+        .quick-link-text {
+          white-space: normal;
+        }
+
+        .quick-link-title {
+          font-size: 0.82rem;
+        }
+
+        .quick-link-text {
+          margin-top: 4px;
+          font-size: 0.72rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="phone-shell">
+      <header class="topbar" aria-label="Main header">
+        <div class="brand">
+          <div class="logo-wrap" aria-label="FutureBaby logo">
+            <img class="baby-logo" src="baby.png" alt="FutureBaby logo">
+          </div>
+          <div class="brand-name">FutureBaby</div>
+        </div>
+
+        <div class="header-actions">
+          <div class="pro-pill">
+            <img class="crown-img" src="crown.png" alt="Pro crown">
+            <span>Pro</span>
+          </div>
+
+          <div class="bell-wrap" aria-label="Notifications">
+            <img class="bell-img" src="bell.png" alt="Notifications">
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <h1 class="hero-title" id="hero-title">
+              Imagine Your
+              <span>Future Baby</span>
+            </h1>
+
+            <p class="hero-description">
+              A beautiful place to visualize<br class="desktop-break">
+              your future family with love.
+            </p>
+
+            <div class="feature-list" aria-label="FutureBaby features">
+              <div class="feature">
+                <span class="feature-icon" aria-hidden="true">♡</span>
+                <span>Beautiful baby gallery</span>
+              </div>
+              <div class="feature">
+                <span class="feature-icon" aria-hidden="true">✦</span>
+                <span>AI baby generator</span>
+              </div>
+              <div class="feature">
+                <span class="feature-icon" aria-hidden="true">♧</span>
+                <span>Baby → Toddler → Child</span>
+              </div>
+              <div class="feature">
+                <span class="feature-icon" aria-hidden="true">♡</span>
+                <span>Save, share &amp; favorite</span>
+              </div>
+              <div class="feature">
+                <span class="feature-icon" aria-hidden="true">✾</span>
+                <span>Daily visualizations &amp; affirmations</span>
+              </div>
+            </div>
+
+            <button class="hero-cta" type="button">
+              <span class="hero-cta-icon" aria-hidden="true">✧</span>
+              <span>Imagine My Baby</span>
+              <span class="hero-cta-arrow" aria-hidden="true">›</span>
+            </button>
+            <p class="hero-note">Free to try&nbsp; • &nbsp;No credit card required</p>
+          </div>
+        </section>
+
+        <section class="quick-links" aria-label="Quick access features">
+          <div class="quick-link">
+            <span class="quick-link-icon" aria-hidden="true">▣</span>
+            <span class="quick-link-title">Browse Gallery</span>
+            <span class="quick-link-text">1000+ baby photos</span>
+          </div>
+          <div class="quick-link">
+            <span class="quick-link-icon" aria-hidden="true">□</span>
+            <span class="quick-link-title">Daily Visualization</span>
+            <span class="quick-link-text">New baby daily</span>
+          </div>
+          <div class="quick-link">
+            <span class="quick-link-icon" aria-hidden="true">☆</span>
+            <span class="quick-link-title">My Favorites</span>
+            <span class="quick-link-text">Saved with love</span>
+          </div>
+          <div class="quick-link">
+            <span class="quick-link-icon" aria-hidden="true">♧</span>
+            <span class="quick-link-title">Share with Partner</span>
+            <span class="quick-link-text">Together is better</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  
+
+</body></html>
