@@ -166,13 +166,6 @@
         height: 36px;
       }
 
-      .profile-img {
-        width: 32px;
-        height: 32px;
-        display: block;
-        object-fit: contain;
-      }
-
       .desktop-profile-stack {
         display: flex;
         flex-direction: column;
@@ -494,231 +487,6 @@
         line-height: 0.6;
       }
 
-      .affirmation-library {
-        max-width: 920px;
-        margin: 0 auto 36px;
-        padding: 0 34px 40px;
-        color: var(--text);
-      }
-
-      .affirmation-library-header {
-        display: flex;
-        align-items: end;
-        justify-content: space-between;
-        gap: 16px;
-        margin-bottom: 18px;
-      }
-
-      .affirmation-library-title {
-        margin: 0;
-        font-size: clamp(1.35rem, 2.6vw, 2rem);
-      }
-
-      .affirmation-library-subtitle {
-        margin: 5px 0 0;
-        color: var(--muted);
-        font-size: 0.82rem;
-      }
-
-      .affirmation-surprise {
-        margin-top: 10px;
-        padding: 9px 13px;
-        border: 0;
-        border-radius: 999px;
-        background: #7547ed;
-        color: #fff;
-        font: inherit;
-        font-size: 0.76rem;
-        font-weight: 800;
-        cursor: pointer;
-      }
-
-      .affirmation-count {
-        flex-shrink: 0;
-        color: #7547ed;
-        font-size: 0.8rem;
-        font-weight: 800;
-      }
-
-      .affirmation-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-      }
-
-      .affirmation-card {
-        min-height: 128px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-between;
-        padding: 16px;
-        border: 1px solid rgba(117, 71, 237, 0.1);
-        border-radius: 16px;
-        background: #fff;
-        color: var(--text);
-        font: inherit;
-        text-align: left;
-        cursor: pointer;
-        transition: transform 160ms ease, box-shadow 160ms ease;
-      }
-
-      .affirmation-card:hover,
-      .affirmation-card:focus-visible {
-        transform: translateY(-3px);
-        outline: none;
-        box-shadow: 0 8px 20px rgba(117, 71, 237, 0.14);
-      }
-
-      .affirmation-card:nth-child(3n + 1) {
-        background: #fff4ed;
-      }
-
-      .affirmation-card:nth-child(3n + 2) {
-        background: #eef8ff;
-      }
-
-      .affirmation-card:nth-child(3n) {
-        background: #f5efff;
-      }
-
-      .affirmation-card-number {
-        display: grid;
-        width: 28px;
-        height: 28px;
-        place-items: center;
-        border-radius: 50%;
-        background: #f1ebff;
-        color: #7547ed;
-        font-size: 0.72rem;
-        font-weight: 800;
-      }
-
-      .affirmation-card-text {
-        margin-top: 12px;
-        font-size: 0.86rem;
-        font-weight: 700;
-        line-height: 1.35;
-      }
-
-      .affirmation-detail {
-        max-width: 920px;
-        min-height: 520px;
-        margin: 0 auto 36px;
-        padding: 30px 34px 40px;
-        color: var(--text);
-      }
-
-      .affirmation-back {
-        padding: 8px 0;
-        border: 0;
-        background: transparent;
-        color: #7547ed;
-        font: inherit;
-        font-size: 0.84rem;
-        font-weight: 800;
-        cursor: pointer;
-      }
-
-      .affirmation-detail-card {
-        max-width: 680px;
-        margin: 46px auto 0;
-        padding: 42px 34px;
-        border-radius: 28px;
-        background: linear-gradient(145deg, #f0eaff, #fff4ed);
-        text-align: center;
-      }
-
-      .affirmation-detail-card.celebrate {
-        animation: affirmation-celebrate 700ms ease;
-      }
-
-      @keyframes affirmation-celebrate {
-        0%, 100% { transform: scale(1); }
-        45% { transform: scale(1.025) rotate(-1deg); }
-        70% { transform: scale(1.015) rotate(1deg); }
-      }
-
-      .affirmation-detail-label {
-        margin: 0;
-        color: #7547ed;
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .affirmation-detail-text {
-        margin: 18px auto 30px;
-        max-width: 540px;
-        color: var(--text);
-        font-size: clamp(1.45rem, 3vw, 2.35rem);
-        font-weight: 800;
-        line-height: 1.25;
-      }
-
-      .affirmation-countdown {
-        display: grid;
-        gap: 9px;
-        max-width: 300px;
-        margin: 0 auto;
-      }
-
-      .affirmation-countdown-circle {
-        --countdown-progress: 100%;
-        position: relative;
-        width: 184px;
-        height: 184px;
-        display: grid;
-        place-items: center;
-        margin: 0 auto 4px;
-        border-radius: 50%;
-        background: conic-gradient(#ff69ae var(--countdown-progress), rgba(117, 71, 237, 0.14) 0);
-        box-shadow: 0 10px 24px rgba(117, 71, 237, 0.18);
-        transition: background 1s linear;
-      }
-
-      .affirmation-countdown-circle::before {
-        position: absolute;
-        inset: 10px;
-        border-radius: 50%;
-        background: #fffafc;
-        content: '';
-      }
-
-      .affirmation-countdown-circle strong,
-      .affirmation-countdown-circle small {
-        position: relative;
-        z-index: 1;
-        display: block;
-        text-align: center;
-      }
-
-      .affirmation-countdown-circle strong {
-        color: #7547ed;
-        font-size: 1.8rem;
-      }
-
-      .affirmation-countdown-circle small {
-        margin-top: -48px;
-        color: var(--muted);
-        font-size: 0.72rem;
-        font-weight: 700;
-      }
-
-      .affirmation-countdown-note {
-        margin: 0;
-        color: var(--muted);
-        font-size: 0.76rem;
-      }
-
-      .affirmation-celebration {
-        margin: 18px 0 0;
-        color: #ff5b93;
-        font-size: 0.82rem;
-        font-weight: 800;
-      }
-
       .profile-page {
         margin: 0 auto 36px;
         padding: 30px 34px 40px;
@@ -903,420 +671,6 @@
         margin: 0;
       }
 
-      .nutrition-page {
-        max-width: 920px;
-        margin: 0 auto 36px;
-        padding: 30px 34px 40px;
-        color: var(--text);
-      }
-
-      .nutrition-heading {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 24px;
-      }
-
-      .nutrition-heading img {
-        width: 52px;
-        height: 52px;
-        object-fit: contain;
-      }
-
-      .nutrition-title {
-        margin: 0;
-        font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-        letter-spacing: -0.04em;
-      }
-
-      .nutrition-subtitle {
-        margin: 5px 0 0;
-        color: var(--muted);
-        font-size: 0.9rem;
-        font-weight: 600;
-      }
-
-      .nutrition-dashboard {
-        display: grid;
-        gap: 18px;
-      }
-
-      .nutrition-goal {
-        padding: 20px;
-        border-radius: 18px;
-        background: #eef8ff;
-      }
-
-      .nutrition-goal-header,
-      .nutrition-section-header,
-      .nutrition-check-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-      }
-
-      .nutrition-goal-header strong,
-      .nutrition-section-title {
-        color: var(--text);
-        font-size: 1rem;
-      }
-
-      .nutrition-goal-value {
-        color: #168fd9;
-        font-size: 1.2rem;
-        font-weight: 800;
-      }
-
-      .nutrition-goal-copy {
-        margin: 6px 0 14px;
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-
-      .nutrition-meter {
-        position: relative;
-        height: 10px;
-        overflow: hidden;
-        border-radius: 999px;
-        background: rgba(22, 143, 217, 0.14);
-      }
-
-      .nutrition-meter-fill {
-        display: block;
-        width: 75%;
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, #56c7ec, #168fd9);
-        box-shadow: 0 0 12px rgba(22, 143, 217, 0.35);
-        transition: width 260ms ease;
-      }
-
-      .nutrition-goal-status {
-        margin: 12px 0 0;
-        color: #168fd9;
-        font-size: 0.78rem;
-        font-weight: 700;
-      }
-
-      .nutrition-goal-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        margin-top: 14px;
-      }
-
-      .nutrition-goal-footer span {
-        color: var(--muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-
-      .nutrition-stepper {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .nutrition-control {
-        width: 30px;
-        height: 30px;
-        border: 0;
-        border-radius: 50%;
-        background: #fff;
-        color: #168fd9;
-        font: inherit;
-        font-size: 1.1rem;
-        font-weight: 800;
-        cursor: pointer;
-      }
-
-      .nutrition-section {
-        padding: 18px;
-        border: 1px solid rgba(109, 114, 139, 0.12);
-        border-radius: 18px;
-        background: #fff;
-      }
-
-      .nutrition-section-title {
-        margin: 0;
-        font-size: 1.05rem;
-      }
-
-      .nutrition-section-note {
-        margin: 4px 0 14px;
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .nutrition-checklist {
-        display: grid;
-        gap: 11px;
-      }
-
-      .nutrition-check-row {
-        justify-content: flex-start;
-        color: var(--text);
-        font-size: 0.85rem;
-        cursor: pointer;
-      }
-
-      .nutrition-check-row input {
-        width: 18px;
-        height: 18px;
-        accent-color: #168fd9;
-      }
-
-      .nutrition-check-row small {
-        margin-left: auto;
-        color: var(--muted);
-        font-size: 0.72rem;
-      }
-
-      .nutrition-suggestions {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-
-      .nutrition-suggestion {
-        padding: 14px;
-        border-radius: 14px;
-        background: #fff4ed;
-      }
-
-      .nutrition-suggestion:nth-child(2) {
-        background: #f5efff;
-      }
-
-      .nutrition-suggestion:nth-child(3) {
-        background: #eef8ff;
-      }
-
-      .nutrition-suggestion strong,
-      .nutrition-suggestion span {
-        display: block;
-      }
-
-      .nutrition-suggestion strong {
-        font-size: 0.84rem;
-      }
-
-      .nutrition-suggestion span {
-        margin-top: 5px;
-        color: var(--muted);
-        font-size: 0.74rem;
-        line-height: 1.35;
-      }
-
-      .nutrition-tips {
-        padding: 18px;
-        border-radius: 18px;
-        background: #fff4ed;
-      }
-
-      .nutrition-tips-title {
-        margin: 0;
-        color: var(--text);
-        font-size: 1.05rem;
-      }
-
-      .nutrition-tips-subtitle {
-        margin: 4px 0 14px;
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .nutrition-tip-list {
-        display: grid;
-        gap: 12px;
-      }
-
-      .nutrition-tip {
-        display: grid;
-        grid-template-columns: 34px 1fr;
-        align-items: start;
-        gap: 10px;
-      }
-
-      .nutrition-tip-icon {
-        width: 32px;
-        height: 32px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: #fff;
-        color: #168fd9;
-        font-size: 0.9rem;
-        font-weight: 800;
-      }
-
-      .nutrition-tip-copy {
-        color: var(--muted);
-        font-size: 0.78rem;
-        line-height: 1.4;
-      }
-
-      .nutrition-tip-copy strong {
-        color: var(--text);
-      }
-
-      .nutrition-summary {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-bottom: 24px;
-      }
-
-      .nutrition-card {
-        padding: 16px;
-        border-radius: 18px;
-        background: #fff4ed;
-      }
-
-      .nutrition-action {
-        width: 100%;
-        border: 0;
-        color: inherit;
-        font: inherit;
-        text-align: left;
-        cursor: pointer;
-        transition: transform 160ms ease;
-      }
-
-      .nutrition-action:active {
-        transform: scale(0.97);
-      }
-
-      .nutrition-card:nth-child(2) {
-        background: #eef8ff;
-      }
-
-      .nutrition-card:nth-child(3) {
-        background: #f5efff;
-      }
-
-      .nutrition-card strong,
-      .nutrition-card span {
-        display: block;
-      }
-
-      .nutrition-card strong {
-        font-size: 1.35rem;
-      }
-
-      .nutrition-card span {
-        margin-top: 5px;
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 600;
-      }
-
-      .water-reminder {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 24px;
-        padding: 16px;
-        border-radius: 18px;
-        background: #eef8ff;
-      }
-
-      .water-reminder-icon {
-        font-size: 2rem;
-      }
-
-      .water-reminder-copy {
-        flex: 1;
-      }
-
-      .water-reminder-copy strong,
-      .water-reminder-copy span {
-        display: block;
-      }
-
-      .water-reminder-copy strong {
-        color: var(--text);
-        font-size: 0.95rem;
-      }
-
-      .water-reminder-copy span {
-        margin-top: 3px;
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .water-add {
-        padding: 9px 13px;
-        border: 0;
-        border-radius: 999px;
-        background: #168fd9;
-        color: #fff;
-        font: inherit;
-        font-size: 0.78rem;
-        font-weight: 700;
-        cursor: pointer;
-      }
-
-      .nutrition-list {
-        display: grid;
-        gap: 10px;
-      }
-
-      .nutrition-item {
-        display: flex;
-        align-items: center;
-        gap: 13px;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(109, 114, 139, 0.12);
-      }
-
-      .nutrition-item-icon {
-        width: 38px;
-        height: 38px;
-        display: grid;
-        place-items: center;
-        border-radius: 50%;
-        background: #fff0e4;
-        font-size: 1.25rem;
-      }
-
-      .nutrition-item-copy {
-        flex: 1;
-      }
-
-      .nutrition-item-copy strong,
-      .nutrition-item-copy span {
-        display: block;
-      }
-
-      .nutrition-item-copy strong {
-        font-size: 0.94rem;
-      }
-
-      .nutrition-item-copy span {
-        margin-top: 3px;
-        color: var(--muted);
-        font-size: 0.78rem;
-      }
-
-      .nutrition-progress {
-        width: 76px;
-        height: 7px;
-        overflow: hidden;
-        border-radius: 999px;
-        background: rgba(117, 71, 237, 0.12);
-      }
-
-      .nutrition-progress span {
-        display: block;
-        width: 72%;
-        height: 100%;
-        border-radius: inherit;
-        background: linear-gradient(90deg, #ff8a67, #7547ed);
-      }
-
       .page-section[hidden] {
         display: none;
       }
@@ -1361,18 +715,6 @@
         color: currentColor;
         font-size: 2rem;
         line-height: 1;
-      }
-
-      .nav-image-icon {
-        width: 30px;
-        height: 30px;
-        display: block;
-        object-fit: contain;
-      }
-
-      .nutrition-nav-image {
-        width: 36px;
-        height: 36px;
       }
 
       .profile-nav-icon {
@@ -1658,61 +1000,6 @@
           padding: 22px 18px;
         }
 
-        .nutrition-page {
-          padding: 24px 18px 34px;
-        }
-
-        .affirmation-library,
-        .affirmation-detail {
-          padding-right: 18px;
-          padding-left: 18px;
-        }
-
-        .affirmation-library-header {
-          align-items: flex-start;
-          flex-direction: column;
-        }
-
-        .affirmation-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .nutrition-summary {
-          gap: 8px;
-        }
-
-        .nutrition-card {
-          padding: 12px 8px;
-          border-radius: 14px;
-        }
-
-        .nutrition-card strong {
-          font-size: 1.05rem;
-        }
-
-        .nutrition-card span {
-          font-size: 0.67rem;
-        }
-
-        .nutrition-suggestions {
-          grid-template-columns: 1fr;
-        }
-
-        .water-reminder {
-          gap: 9px;
-          padding: 13px 10px;
-        }
-
-        .water-reminder-copy strong {
-          font-size: 0.82rem;
-        }
-
-        .water-reminder-copy span,
-        .water-add {
-          font-size: 0.68rem;
-        }
-
-
         .bottom-nav {
           display: grid;
           padding: 8px 8px 6px;
@@ -1728,11 +1015,6 @@
           width: 34px;
           height: 34px;
           font-size: 1.65rem;
-        }
-
-        .nav-image-icon {
-          width: 27px;
-          height: 27px;
         }
 
         .nav-item.generate {
@@ -1764,7 +1046,7 @@
           </div>
 
           <button class="header-profile" id="header-profile" type="button" aria-label="Profile">
-            <img class="profile-img" src="icons/profile.png" alt="Profile" />
+            <span class="profile-nav-icon" aria-hidden="true"></span>
           </button>
         </div>
       </header>
@@ -1910,124 +1192,32 @@
 
         <section class="affirmation page-section" id="affirmation-section" data-pages="home affirmation" aria-label="Affirmation page" aria-labelledby="affirmation-title">
           <div class="affirmation-copy">
-            <h2 class="affirmation-title" id="affirmation-title">Daily Baby Affirmation&nbsp; ♥</h2>
-            <p class="affirmation-text">I welcome a beautiful, healthy<br />and loving baby into my future. 💜</p>
-            <button class="affirmation-button" id="affirmation-button" type="button">New Affirmation <span aria-hidden="true">›</span></button>
+            <h2 class="affirmation-title" id="affirmation-title">Daily Affirmation&nbsp; ♥</h2>
+            <p class="affirmation-text">I welcome a happy, healthy<br />and beautiful future family. 💜</p>
+            <button class="affirmation-button" type="button">New Affirmation <span aria-hidden="true">›</span></button>
           </div>
         </section>
-
-        <section class="affirmation-library page-section" id="affirmation-library" data-pages="affirmation" aria-labelledby="affirmation-library-title">
-          <div class="affirmation-library-header">
-            <div>
-              <h1 class="affirmation-library-title" id="affirmation-library-title">Your affirmation collection</h1>
-              <p class="affirmation-library-subtitle">Choose a thought to carry with you today.</p>
-              <button class="affirmation-surprise" id="affirmation-surprise" type="button">Surprise me ✨</button>
-            </div>
-            <span class="affirmation-count">30 affirmations</span>
-          </div>
-          <div class="affirmation-grid" id="affirmation-grid"></div>
-        </section>
-
-        <section class="affirmation-detail page-section" id="affirmation-detail" data-pages="affirmation-detail" aria-labelledby="affirmation-detail-text">
-          <button class="affirmation-back" id="affirmation-back" type="button">‹ All affirmations</button>
-          <div class="affirmation-detail-card">
-            <p class="affirmation-detail-label">Take a quiet moment</p>
-            <p class="affirmation-detail-text" id="affirmation-detail-text"></p>
-            <div class="affirmation-countdown" aria-label="Affirmation countdown">
-              <div class="affirmation-countdown-circle" id="affirmation-countdown-circle" role="progressbar" aria-label="Affirmation countdown" aria-valuemin="0" aria-valuemax="60" aria-valuenow="60">
-                <strong id="affirmation-countdown-value" aria-live="polite">60</strong>
-                <small>seconds</small>
-              </div>
-              <p class="affirmation-countdown-note">Breathe in, read it slowly, and let it settle.</p>
-              <p class="affirmation-celebration" id="affirmation-celebration" hidden>You made space for yourself today. ✨</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="nutrition-page page-section" id="nutrition-section" data-pages="nutrition" aria-labelledby="nutrition-title">
-          <div class="nutrition-heading">
-            <img src="icons/nutrition.png" alt="" />
-            <div>
-              <h1 class="nutrition-title" id="nutrition-title">Nutrition</h1>
-              <p class="nutrition-subtitle">A simple check-in for today</p>
-            </div>
-          </div>
-
-          <div class="nutrition-dashboard">
-            <section class="nutrition-goal" aria-labelledby="hydration-title">
-              <div class="nutrition-goal-header">
-                <strong id="hydration-title">Hydration</strong>
-                <span class="nutrition-goal-value" id="water-summary">6 / 8</span>
-              </div>
-              <p class="nutrition-goal-copy">Small, regular sips are easier than catching up at night.</p>
-              <div class="nutrition-meter" role="progressbar" aria-label="Hydration progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="6"><span class="nutrition-meter-fill" id="water-progress"></span></div>
-              <p class="nutrition-goal-status" id="water-message" aria-live="polite">Two glasses to go. You are doing great.</p>
-              <div class="nutrition-goal-footer">
-                <span id="water-count">6 glasses logged today</span>
-                <div class="nutrition-stepper" aria-label="Update glasses of water">
-                  <button class="nutrition-control" id="water-remove" type="button" aria-label="Remove one glass">-</button>
-                  <button class="nutrition-control" id="water-add" type="button" aria-label="Add one glass">+</button>
-                </div>
-              </div>
-            </section>
-
-            <section class="nutrition-section" aria-labelledby="plate-title">
-              <div class="nutrition-section-header">
-                <h2 class="nutrition-section-title" id="plate-title">Build a balanced plate</h2>
-                <span id="plate-count">0 / 3</span>
-              </div>
-              <p class="nutrition-section-note">Check off what you have included in your next meal.</p>
-              <div class="nutrition-checklist">
-                <label class="nutrition-check-row"><input class="plate-check" type="checkbox" /> Protein <small>eggs, beans, yogurt</small></label>
-                <label class="nutrition-check-row"><input class="plate-check" type="checkbox" /> Produce <small>fruit or vegetables</small></label>
-                <label class="nutrition-check-row"><input class="plate-check" type="checkbox" /> Whole grains <small>oats, rice, bread</small></label>
-              </div>
-            </section>
-
-            <section class="nutrition-section" aria-labelledby="ideas-title">
-              <div class="nutrition-section-header">
-                <h2 class="nutrition-section-title" id="ideas-title">Easy ideas for today</h2>
-              </div>
-              <div class="nutrition-suggestions">
-                <article class="nutrition-suggestion"><strong>Breakfast</strong><span>Oats with yogurt and a banana.</span></article>
-                <article class="nutrition-suggestion"><strong>Lunch</strong><span>Rice, beans, greens, and avocado.</span></article>
-                <article class="nutrition-suggestion"><strong>Snack</strong><span>Fruit with nuts or cheese.</span></article>
-              </div>
-            </section>
-
-            <section class="nutrition-tips" aria-labelledby="nutrition-tips-title">
-              <h2 class="nutrition-tips-title" id="nutrition-tips-title">Tiny tips that help</h2>
-              <p class="nutrition-tips-subtitle">Keep it simple and choose one for today.</p>
-              <div class="nutrition-tip-list">
-                <article class="nutrition-tip"><span class="nutrition-tip-icon" aria-hidden="true">1</span><span class="nutrition-tip-copy"><strong>Pair water with a routine.</strong> Take a few sips whenever you eat or check your phone.</span></article>
-                <article class="nutrition-tip"><span class="nutrition-tip-icon" aria-hidden="true">2</span><span class="nutrition-tip-copy"><strong>Add one extra color.</strong> A handful of berries, greens, or carrots is enough.</span></article>
-                <article class="nutrition-tip"><span class="nutrition-tip-icon" aria-hidden="true">3</span><span class="nutrition-tip-copy"><strong>Make the easy choice visible.</strong> Keep fruit washed and ready to grab.</span></article>
-              </div>
-            </section>
-          </div>
-        </section>
-
       </main>
 
       <nav class="bottom-nav" aria-label="Primary navigation">
         <button class="nav-item active" type="button" data-page="home">
-          <span class="nav-icon" aria-hidden="true"><img class="nav-image-icon" src="icons/home.png" alt="" /></span>
+          <span class="nav-icon" aria-hidden="true">⌂</span>
           <span>Home</span>
         </button>
         <button class="nav-item" type="button" data-page="gallery">
-          <span class="nav-icon" aria-hidden="true"><img class="nav-image-icon" src="icons/gallery.png" alt="" /></span>
+          <span class="nav-icon" aria-hidden="true">▧</span>
           <span>Gallery</span>
         </button>
         <button class="nav-item generate" type="button" data-page="generate">
           <span class="nav-icon" aria-hidden="true">✦</span>
           <span>Generate</span>
         </button>
-        <button class="nav-item" type="button" data-page="nutrition">
-          <span class="nav-icon" aria-hidden="true"><img class="nav-image-icon nutrition-nav-image" src="icons/nutrition.png" alt="" /></span>
-          <span>Nutrition</span>
+        <button class="nav-item" type="button" data-page="favorites">
+          <span class="nav-icon" aria-hidden="true">♡</span>
+          <span>Favorites</span>
         </button>
         <button class="nav-item" type="button" data-page="affirmation">
-          <span class="nav-icon" aria-hidden="true"><img class="nav-image-icon" src="icons/flower.png" alt="" /></span>
+          <span class="nav-icon" aria-hidden="true">✾</span>
           <span>Affirmation</span>
         </button>
       </nav>
@@ -2042,120 +1232,27 @@
         gallery: 'gallery-section',
         generate: 'generate-action',
         favorites: 'gallery-section',
-        nutrition: 'nutrition-section',
         affirmation: 'affirmation-section',
-        'affirmation-detail': 'affirmation-detail',
-        profile: 'profile-section',
+        profile: 'profile-section'
       };
 
-      function showPage(pageName, shouldScroll = true) {
+      function showPage(pageName) {
         pageSections.forEach((section) => {
           section.hidden = !section.dataset.pages.split(' ').includes(pageName);
         });
 
         navItems.forEach((item) => {
-          item.classList.toggle('active', item.dataset.page === pageName || (pageName === 'affirmation-detail' && item.dataset.page === 'affirmation'));
+          item.classList.toggle('active', item.dataset.page === pageName);
         });
 
-        if (shouldScroll) {
-          document.getElementById(pageTargets[pageName])?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+        document.getElementById(pageTargets[pageName])?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
 
       navItems.forEach((item) => {
         item.addEventListener('click', () => showPage(item.dataset.page));
-      });
-
-      const affirmations = [
-        'I welcome a beautiful and healthy baby with an open heart.',
-        'My future baby is surrounded by love, warmth, and joy.',
-        'I imagine my baby growing happy, strong, and peaceful.',
-        'My baby is deeply loved, wanted, and cherished.',
-        'I am creating a gentle and loving future for my baby.',
-        'My future baby brings light, laughter, and goodness into my life.',
-        'I trust that my baby journey is unfolding with love.',
-        'I welcome a kind, joyful, and beautiful baby into my dreams.',
-        'My baby deserves a home filled with patience and tenderness.',
-        'I picture my baby healthy, safe, and surrounded by care.',
-        'Love is already connecting me to my beautiful future baby.',
-        'I am grateful for the hope and happiness my baby inspires.',
-        'My future baby is a wonderful part of the family I am building.',
-        'I welcome every beautiful possibility for my baby.',
-        'My baby will know love, comfort, laughter, and belonging.',
-        'I send loving thoughts to my healthy and happy future baby.',
-        'My heart is ready to welcome a sweet and beautiful baby.',
-        'I am building a peaceful, caring world for my baby to grow in.',
-        'My future baby is surrounded by positive energy and deep love.',
-        'I trust in a bright, healthy, and joyful future for my baby.',
-        'My baby brings out the most loving and hopeful parts of me.',
-        'I imagine my baby smiling, thriving, and feeling completely loved.',
-        'Our future is filled with beautiful moments shared with my baby.',
-        'I welcome a good, gentle, and loving spirit into my baby journey.',
-        'My future baby will grow surrounded by kindness and encouragement.',
-        'I am grateful for the beautiful baby dreams in my heart.',
-        'My baby is a precious and joyful part of my future.',
-        'I choose hope, love, and peaceful thoughts for my baby.',
-        'I look forward to meeting my beautiful, healthy future baby.',
-        'My baby and I are connected by love, hope, and tenderness.'
-      ];
-
-      const affirmationGrid = document.getElementById('affirmation-grid');
-      affirmations.forEach((affirmation, index) => {
-        const card = document.createElement('button');
-        card.className = 'affirmation-card';
-        card.type = 'button';
-        card.innerHTML = `<span class="affirmation-card-number">${index + 1}</span><span class="affirmation-card-text">${affirmation}</span>`;
-        card.addEventListener('click', () => openAffirmation(index));
-        affirmationGrid.appendChild(card);
-      });
-
-      document.getElementById('affirmation-surprise').addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * affirmations.length);
-        openAffirmation(randomIndex);
-      });
-
-      let affirmationTimer;
-      function openAffirmation(index) {
-        clearInterval(affirmationTimer);
-        const detailCard = document.querySelector('.affirmation-detail-card');
-        const celebration = document.getElementById('affirmation-celebration');
-        detailCard.classList.remove('celebrate');
-        celebration.hidden = true;
-        document.getElementById('affirmation-detail-text').textContent = affirmations[index];
-        showPage('affirmation-detail');
-
-        const affirmationDuration = 60;
-        let secondsLeft = affirmationDuration;
-        const countdownValue = document.getElementById('affirmation-countdown-value');
-        const countdownCircle = document.getElementById('affirmation-countdown-circle');
-        countdownValue.textContent = secondsLeft;
-        countdownCircle.style.setProperty('--countdown-progress', '100%');
-        countdownCircle.setAttribute('aria-valuenow', secondsLeft);
-
-        affirmationTimer = setInterval(() => {
-          secondsLeft -= 1;
-          countdownValue.textContent = secondsLeft;
-          countdownCircle.style.setProperty('--countdown-progress', `${secondsLeft / affirmationDuration * 100}%`);
-          countdownCircle.setAttribute('aria-valuenow', secondsLeft);
-
-          if (secondsLeft === 0) {
-            clearInterval(affirmationTimer);
-            showPage('affirmation');
-          }
-        }, 1000);
-      }
-
-      document.getElementById('affirmation-back').addEventListener('click', () => {
-        clearInterval(affirmationTimer);
-        showPage('affirmation');
-      });
-
-      document.getElementById('affirmation-button').addEventListener('click', () => {
-        clearInterval(affirmationTimer);
-        showPage('affirmation');
       });
 
       document.getElementById('header-profile').addEventListener('click', () => {
@@ -2174,41 +1271,7 @@
         reader.readAsDataURL(selectedFile);
       });
 
-      let waterGlasses = 6;
-      function updateWater() {
-        const waterProgress = document.querySelector('.nutrition-meter');
-        const waterMessage = document.getElementById('water-message');
-        const glassesLeft = 8 - waterGlasses;
-
-        document.getElementById('water-count').textContent = `${waterGlasses} of 8 glasses today`;
-        document.getElementById('water-summary').textContent = `${waterGlasses} / 8`;
-        document.getElementById('water-progress').style.width = `${waterGlasses / 8 * 100}%`;
-        waterProgress.setAttribute('aria-valuenow', waterGlasses);
-        waterMessage.textContent = glassesLeft === 0
-          ? 'Goal reached. Hydration hero!' 
-          : `${glassesLeft} ${glassesLeft === 1 ? 'glass' : 'glasses'} to go. You are doing great.`;
-      }
-
-      document.getElementById('water-add').addEventListener('click', () => {
-        waterGlasses = Math.min(8, waterGlasses + 1);
-        updateWater();
-      });
-
-      document.getElementById('water-remove').addEventListener('click', () => {
-        waterGlasses = Math.max(0, waterGlasses - 1);
-        updateWater();
-      });
-
-      const plateChecks = document.querySelectorAll('.plate-check');
-      function updatePlateCount() {
-        const completedPlates = document.querySelectorAll('.plate-check:checked').length;
-        document.getElementById('plate-count').textContent = `${completedPlates} / 3`;
-      }
-
-      plateChecks.forEach((check) => check.addEventListener('change', updatePlateCount));
-      updateWater();
-
-      showPage('home', false);
+      showPage('home');
     </script>
 
 </body></html>
