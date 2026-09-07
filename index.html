@@ -1392,18 +1392,26 @@
         height: 34px;
         display: grid;
         place-items: center;
-        border-radius: 50%;
-        background: #fff;
-        color: #ff5b93;
+        background: none;
+        border: 0;
+        color: #fff;
         font-size: 1.35rem;
         line-height: 1;
-        box-shadow: 0 2px 8px rgba(30, 35, 61, 0.12);
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
         cursor: pointer;
       }
 
       .gallery-favorite.is-favorite {
-        background: #ff5b93;
-        color: #fff;
+        color: #ff5b93;
+      }
+
+      .heart-icon {
+        display: block;
+        width: 1em;
+        height: 1em;
+        background-color: currentColor;
+        -webkit-mask: url('icons/love.svg') no-repeat center / contain;
+        mask: url('icons/love.svg') no-repeat center / contain;
       }
 
       .gallery-reactions {
@@ -3353,9 +3361,9 @@
 
           <div class="generate-mode-tools" role="tablist" aria-label="Choose what to generate">
             <button class="generate-mode active" type="button" data-generate-mode="baby">Our baby ✦</button>
-            <button class="generate-mode" type="button" data-generate-mode="text">Baby from description ✦</button>
             <button class="generate-mode" type="button" data-generate-mode="pregnancy">Pregnancy photo ✦</button>
             <button class="generate-mode" type="button" data-generate-mode="family">Family photo ✦</button>
+            <button class="generate-mode" type="button" data-generate-mode="text">Baby from description ✦</button>
           </div>
 
           <form class="generate-form" id="generate-form">
@@ -3468,7 +3476,7 @@
           <div class="gallery-list" id="gallery">
             <article class="gallery-card" data-baby-type="bow">
               <img src="images/generated-baby-1.jpg" alt="Generated baby wearing a pink bow" />
-              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
                 <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
@@ -3476,7 +3484,7 @@
             </article>
             <article class="gallery-card" data-baby-type="curly">
               <img src="images/generated-baby-2.jpg" alt="Generated curly-haired baby" />
-              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
                 <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
@@ -3484,7 +3492,7 @@
             </article>
             <article class="gallery-card" data-baby-type="cozy">
               <img src="images/generated-baby-3.jpg" alt="Generated baby wearing a soft hood" />
-              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
                 <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
@@ -3492,7 +3500,7 @@
             </article>
             <article class="gallery-card" data-baby-type="cozy">
               <img src="images/generated-baby-4.jpg" alt="Generated baby in a cream outfit" />
-              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
                 <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
@@ -3515,25 +3523,25 @@
           <div class="gallery-feed-slide" data-feed-index="0">
             <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-1.jpg" alt="Baby wearing a pink bow"></div>
             <div class="gallery-feed-actions">
-              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <div class="gallery-feed-slide" data-feed-index="1" hidden>
             <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-2.jpg" alt="Curly-haired baby"></div>
             <div class="gallery-feed-actions">
-              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <div class="gallery-feed-slide" data-feed-index="2" hidden>
             <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-3.jpg" alt="Baby wearing a soft hood"></div>
             <div class="gallery-feed-actions">
-              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <div class="gallery-feed-slide" data-feed-index="3" hidden>
             <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-4.jpg" alt="Baby in a cream outfit"></div>
             <div class="gallery-feed-actions">
-              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <p class="gallery-feed-caption">Swipe to explore · Double-tap to like</p>
@@ -3868,7 +3876,7 @@
           favoriteButton.className = 'gallery-favorite gallery-generated-favorite';
           favoriteButton.classList.toggle('is-favorite', Boolean(image.favorite));
           favoriteButton.setAttribute('aria-label', 'Favorite this baby');
-          favoriteButton.textContent = image.favorite ? '♥' : '♡';
+          favoriteButton.innerHTML = '<span class="heart-icon" aria-hidden="true"></span>';
           favoriteButton.addEventListener('click', (event) => {
             event.stopPropagation();
             toggleGeneratedFavorite(image.url);
@@ -4025,7 +4033,6 @@
         if (!likeButton) return;
         const isFavorite = galleryCards[index].querySelector('.gallery-favorite').classList.contains('is-favorite');
         likeButton.classList.toggle('is-favorite', isFavorite);
-        likeButton.textContent = isFavorite ? '♥' : '♡';
       }
 
       function showGalleryFeedSlide(index) {
