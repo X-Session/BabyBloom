@@ -9,7 +9,7 @@ const cors = require('cors');
 const Replicate = require('replicate');
 
 const app = express();
-const port = Number(process.env.PORT || 3000);
+const port = Number(process.env.PORT || 4000);
 const maxFileSize = 10 * 1024 * 1024;
 const allowedMimeTypes = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const generatedImagesDir = path.join(__dirname, 'images', 'generated');
