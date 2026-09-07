@@ -47,6 +47,282 @@
         padding: 10px 0 20px;
       }
 
+      .phone-shell.onboarding-active .topbar,
+      .phone-shell.onboarding-active .desktop-nav,
+      .phone-shell.onboarding-active .bottom-nav {
+        display: none;
+      }
+
+      .onboarding-page {
+        min-height: calc(100vh - 30px);
+        display: grid;
+        place-items: center;
+        padding: 34px 24px 54px;
+        background: linear-gradient(145deg, #fff5f7, #f1ebff 70%, #eaf8ff);
+      }
+
+      .onboarding-panel {
+        width: min(100%, 660px);
+        padding: clamp(26px, 5vw, 46px);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 18px 50px rgba(117, 71, 237, 0.14);
+        animation: onboarding-arrive 600ms ease both;
+      }
+
+      @keyframes onboarding-arrive {
+        from { opacity: 0; transform: translateY(14px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      .onboarding-welcome-mark {
+        width: 58px;
+        height: 58px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 18px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #ffb0cf, #cbb8ff);
+        font-size: 1.9rem;
+        box-shadow: 0 8px 18px rgba(117, 71, 237, 0.16);
+      }
+
+      .onboarding-kicker {
+        margin: 0 0 10px;
+        color: #ff5b93;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .onboarding-title {
+        max-width: 540px;
+        margin: 0;
+        color: var(--text);
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        line-height: 1.05;
+      }
+
+      .onboarding-copy {
+        max-width: 520px;
+        margin: 14px 0 26px;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+
+      .onboarding-form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .onboarding-progress {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 22px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+      }
+
+      .onboarding-progress-track {
+        height: 7px;
+        flex: 1;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #eee9f8;
+      }
+
+      .onboarding-progress-fill {
+        display: block;
+        width: 20%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #ff69ae, #7547ed);
+        transition: width 180ms ease;
+      }
+
+      .onboarding-step {
+        display: grid;
+        gap: 18px;
+        animation: onboarding-step-in 260ms ease both;
+      }
+
+      @keyframes onboarding-step-in {
+        from { opacity: 0; transform: translateX(8px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+
+      .onboarding-step[hidden] {
+        display: none;
+      }
+
+      .onboarding-step-title {
+        margin: 0;
+        color: var(--text);
+        font-size: 1.15rem;
+      }
+
+      .onboarding-step-hint {
+        margin: -8px 0 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .onboarding-mood {
+        margin: -4px 0 0;
+        color: #ff5b93;
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .onboarding-field {
+        display: grid;
+        gap: 8px;
+      }
+
+      .onboarding-field label,
+      .onboarding-legend {
+        color: var(--text);
+        font-size: 0.84rem;
+        font-weight: 800;
+      }
+
+      .onboarding-field select {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid rgba(117, 71, 237, 0.16);
+        border-radius: 12px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+        font-size: 0.84rem;
+      }
+
+      .onboarding-field input[type="number"],
+      .onboarding-field input[type="text"],
+      .onboarding-field textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid rgba(117, 71, 237, 0.16);
+        border-radius: 12px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+        font-size: 0.84rem;
+      }
+
+      .onboarding-field textarea {
+        min-height: 86px;
+        resize: vertical;
+      }
+
+      .onboarding-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      .onboarding-option {
+        position: relative;
+      }
+
+      .onboarding-option input {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .onboarding-option span {
+        min-height: 70px;
+        display: grid;
+        place-items: center;
+        padding: 10px;
+        border: 1px solid rgba(117, 71, 237, 0.14);
+        border-radius: 13px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .onboarding-option input:checked + span,
+      .onboarding-option input:focus-visible + span {
+        border-color: #7547ed;
+        background: #f1ebff;
+        color: #7547ed;
+        outline: none;
+      }
+
+      .onboarding-submit {
+        justify-self: start;
+        padding: 13px 22px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #ff69ae, #7547ed);
+        color: #fff;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(117, 71, 237, 0.2);
+      }
+
+      .onboarding-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 4px;
+      }
+
+      .onboarding-previous {
+        padding: 13px 16px;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .onboarding-previous[hidden] {
+        display: none;
+      }
+
+      .confetti-burst {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .confetti-piece {
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        width: 10px;
+        height: 16px;
+        border-radius: 3px;
+        background: var(--confetti-color);
+        opacity: 0;
+        transform: translateX(-50%);
+        animation: confetti-fall 2.2s cubic-bezier(0.2, 0.7, 0.3, 1) var(--confetti-delay) forwards;
+      }
+
+      @keyframes confetti-fall {
+        0% { opacity: 1; transform: translate(-50%, -12px) rotate(0deg); }
+        100% { opacity: 0; transform: translate(calc(-50% + var(--confetti-x)), 105vh) rotate(var(--confetti-rotation)); }
+      }
+
       .topbar {
         position: sticky;
         top: 0;
@@ -60,6 +336,47 @@
         background: rgba(255, 250, 250, 0.94);
         box-shadow: 0 6px 18px rgba(30, 35, 61, 0.06);
         backdrop-filter: blur(12px);
+      }
+
+      .desktop-nav {
+        position: sticky;
+        top: 72px;
+        z-index: 19;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 16px 12px;
+        background: rgba(255, 250, 250, 0.94);
+        box-shadow: 0 6px 14px rgba(30, 35, 61, 0.04);
+        backdrop-filter: blur(12px);
+      }
+
+      .desktop-nav-item {
+        padding: 9px 16px;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+      }
+
+      .desktop-nav-item:hover,
+      .desktop-nav-item:focus-visible {
+        background: #f1ebff;
+        color: #7547ed;
+        outline: none;
+        transform: translateY(-1px);
+      }
+
+      .desktop-nav-item.active {
+        background: #7547ed;
+        color: #fff;
+        box-shadow: 0 5px 14px rgba(117, 71, 237, 0.2);
       }
 
       .brand {
@@ -118,6 +435,7 @@
         justify-content: center;
         gap: 8px;
         padding: 9px 18px 9px 14px;
+        border: 0;
         background: linear-gradient(90deg, #f3e7c8, #f3ecfb);
         border-radius: 16px;
         font-weight: 700;
@@ -126,6 +444,7 @@
         color: #7b5ae5;
         box-shadow: inset 0 0 0 1px rgba(123, 90, 229, 0.04);
         font-family: 'Open Sans', Arial, sans-serif;
+        cursor: pointer;
       }
 
       .crown-img {
@@ -312,6 +631,361 @@
         font-weight: 600;
       }
 
+      .generate-page {
+        max-width: 920px;
+        margin: 0 auto 36px;
+        padding: 32px 34px 48px;
+        color: var(--text);
+      }
+
+      .generate-heading {
+        margin-bottom: 24px;
+      }
+
+      .generate-title {
+        margin: 0;
+        font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+      }
+
+      .generate-copy {
+        max-width: 560px;
+        margin: 7px 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      .generate-mode-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 22px;
+      }
+
+      .generate-mode {
+        padding: 10px 16px;
+        border: 1px solid rgba(117, 71, 237, 0.16);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .generate-mode.active {
+        border-color: #7547ed;
+        background: #7547ed;
+        color: #fff;
+      }
+
+      .generate-form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .generate-upload-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .generate-upload-grid[hidden] {
+        display: none;
+      }
+
+      .generate-text-field {
+        display: grid;
+        gap: 8px;
+      }
+
+      .generate-text-field[hidden] {
+        display: none;
+      }
+
+      .generate-text-field label {
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .generate-text-field textarea {
+        min-height: 140px;
+        padding: 16px;
+        border: 2px dashed rgba(117, 71, 237, 0.3);
+        border-radius: 20px;
+        outline: 0;
+        background: #faf8ff;
+        color: var(--text);
+        font: inherit;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        resize: vertical;
+      }
+
+      .generate-text-field textarea:focus {
+        border-color: #7547ed;
+        background: #f4efff;
+      }
+
+      .generate-upload {
+        position: relative;
+        min-height: 240px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border: 2px dashed rgba(117, 71, 237, 0.3);
+        border-radius: 20px;
+        background: #faf8ff;
+        cursor: pointer;
+        transition: border-color 160ms ease, background 160ms ease;
+      }
+
+      .generate-upload:hover,
+      .generate-upload:focus-within {
+        border-color: #7547ed;
+        background: #f4efff;
+      }
+
+      .generate-upload input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+      }
+
+      .generate-upload-content {
+        display: grid;
+        justify-items: center;
+        gap: 7px;
+        padding: 20px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .generate-upload-icon {
+        width: 54px;
+        height: 54px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #eee7ff;
+        color: #7547ed;
+        font-size: 1.65rem;
+      }
+
+      .generate-upload strong {
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+
+      .generate-upload small {
+        font-size: 0.72rem;
+      }
+
+      .generate-preview {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        object-fit: cover;
+      }
+
+      .generate-upload.has-image .generate-preview {
+        display: block;
+      }
+
+      .generate-upload.has-image .generate-upload-content {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        z-index: 1;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: rgba(26, 31, 77, 0.78);
+        color: #fff;
+      }
+
+      .generate-upload.has-image .generate-upload-icon,
+      .generate-upload.has-image small {
+        display: none;
+      }
+
+      .generate-submit {
+        justify-self: start;
+        padding: 13px 22px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(100deg, #ff629a, #7547ee);
+        color: #fff;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(117, 71, 237, 0.2);
+      }
+
+      .generate-submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .generate-status {
+        min-height: 20px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .generate-progress-panel {
+        display: none;
+        gap: 10px;
+        padding: 16px;
+        border: 1px solid rgba(117, 71, 237, 0.14);
+        border-radius: 16px;
+        background: #faf8ff;
+      }
+
+      .generate-progress-panel.visible {
+        display: grid;
+      }
+
+      .generate-progress-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        color: var(--text);
+        font-size: 0.8rem;
+        font-weight: 800;
+      }
+
+      .generate-progress-track {
+        height: 9px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #eae4f8;
+      }
+
+      .generate-progress-fill {
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #ff629a, #7547ee);
+        transition: width 350ms ease;
+      }
+
+      .generate-progress-fun {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .generate-result {
+        width: 100%;
+        height: auto;
+        max-width: 520px;
+        max-height: 520px;
+        object-fit: contain;
+        display: none;
+        border-radius: 20px;
+        box-shadow: 0 12px 28px rgba(117, 71, 237, 0.14);
+        cursor: pointer;
+      }
+
+      .generate-result.visible {
+        display: block;
+      }
+
+      .generate-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(26, 31, 77, 0.72);
+        backdrop-filter: blur(8px);
+      }
+
+      .generate-modal[hidden] {
+        display: none;
+      }
+
+      .generate-modal-card {
+        position: relative;
+        width: min(100%, 620px);
+        max-height: calc(100vh - 48px);
+        display: grid;
+        gap: 16px;
+        overflow: auto;
+        padding: 18px;
+        border-radius: 24px;
+        background: #fff;
+        box-shadow: 0 22px 60px rgba(26, 31, 77, 0.28);
+      }
+
+      .generate-modal-image {
+        width: 100%;
+        max-height: calc(100vh - 170px);
+        border-radius: 16px;
+        object-fit: contain;
+        background: #f7f5fb;
+      }
+
+      .generate-modal-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(26, 31, 77, 0.78);
+        color: #fff;
+        font: inherit;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .generate-modal-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .generate-modal-action {
+        padding: 11px 17px;
+        border: 0;
+        border-radius: 999px;
+        background: #f1ebff;
+        color: #7547ed;
+        font: inherit;
+        font-size: 0.8rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .generate-modal-action.primary {
+        background: linear-gradient(100deg, #ff629a, #7547ee);
+        color: #fff;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
       .quick-links {
         display: none;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -401,11 +1075,15 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
+        border: 0;
+        background: none;
+        padding: 0;
         color: #7547ed;
         font: inherit;
         font-size: clamp(0.9rem, 1.6vw, 1.2rem);
         font-weight: 700;
         text-decoration: none;
+        cursor: pointer;
       }
 
       .gallery-view-all span {
@@ -413,20 +1091,215 @@
         line-height: 0.7;
       }
 
-      .gallery-list {
+      .gallery-tools {
+        display: flex;
+        gap: 8px;
+        padding: 0 36px 16px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .gallery-tools::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gallery-filter {
+        flex: 0 0 auto;
+        padding: 8px 14px;
+        border: 1px solid rgba(117, 71, 237, 0.14);
+        border-radius: 999px;
+        background: #fff;
+        color: var(--muted);
+        font: inherit;
+        font-size: 0.76rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .gallery-filter.active {
+        border-color: #7547ed;
+        background: #7547ed;
+        color: #fff;
+      }
+
+      .gallery-generate-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin: 0 36px 16px;
+        padding: 16px 20px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #f4edff, #ffeef2);
+      }
+
+      .gallery-generate-copy {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 3px;
+      }
+
+      .gallery-generate-copy strong {
+        font-size: 0.94rem;
+      }
+
+      .gallery-generate-copy span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+
+      .gallery-generate-button {
+        flex: 0 0 auto;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #7547ed, #ff5b93);
+        color: #fff;
+        font: inherit;
+        font-size: 0.82rem;
+        font-weight: 800;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .gallery-hint {
+        margin: -4px 36px 14px;
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+
+      .gallery-generated-favorite {
+        top: 8px;
+        left: 8px;
+        right: auto;
+        width: 28px;
+        height: 28px;
+        font-size: 1.05rem;
+      }
+
+      .gallery-generated-remove {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 26px;
+        height: 26px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(26, 31, 77, 0.55);
+        color: #fff;
+        font-size: 0.9rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .gallery-generated-mode {
+        position: absolute;
+        left: 8px;
+        bottom: 8px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(26, 31, 77, 0.55);
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      .gallery-empty {
+        margin: 0 36px 14px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        text-align: center;
+      }
+
+      .gallery-empty[hidden] {
+        display: none;
+      }
+
+      .gallery-load-more {
+        display: grid;
+        justify-items: center;
+        gap: 12px;
+        margin: 4px 36px 8px;
+        text-align: center;
+      }
+
+      .gallery-load-more[hidden] {
+        display: none;
+      }
+
+      .gallery-load-more-button {
+        padding: 12px 26px;
+        border: 1px solid rgba(117, 71, 237, 0.24);
+        border-radius: 999px;
+        background: #fff;
+        color: #7547ed;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .gallery-load-more-button[hidden] {
+        display: none;
+      }
+
+      .gallery-upgrade-cta {
+        display: grid;
+        justify-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 18px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #fff0f6, #f1ebff);
+        border: 1px solid rgba(117, 71, 237, 0.16);
+      }
+
+      .gallery-upgrade-cta[hidden] {
+        display: none;
+      }
+
+      .gallery-upgrade-cta p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 700;
+      }
+
+      .gallery-upgrade-button {
+        padding: 12px 22px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(100deg, #ff629a, #7547ee);
+        color: #fff;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(117, 71, 237, 0.2);
+      }
+
+      .gallery-list {
+        display: flex;
+        flex-direction: column;
         gap: 18px;
-        padding: 0 36px;
+        padding: 0 36px 8px;
+        max-height: 640px;
+        overflow-y: auto;
+        scroll-snap-type: y proximity;
       }
 
       .gallery-card {
         position: relative;
-        min-width: 0;
-        aspect-ratio: 1.15;
+        flex: 0 0 auto;
+        width: 100%;
+        aspect-ratio: 4 / 5;
         overflow: hidden;
         border-radius: 22px;
         background: #f7eeee;
+        scroll-snap-align: start;
       }
 
       .gallery-card img {
@@ -434,6 +1307,81 @@
         height: 100%;
         display: block;
         object-fit: cover;
+      }
+
+      .gallery-card.is-hidden {
+        display: none;
+      }
+
+      .gallery-list#gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 3px;
+        padding: 0 2px 8px;
+        max-height: none;
+        overflow: visible;
+        scroll-snap-type: none;
+      }
+
+      .gallery-list#gallery .gallery-card {
+        aspect-ratio: 1;
+        border-radius: 4px;
+      }
+
+      .gallery-list#gallery .gallery-reactions {
+        display: none;
+      }
+
+      .gallery-list#gallery .gallery-favorite {
+        width: 26px;
+        height: 26px;
+        font-size: 1rem;
+      }
+
+      .gallery-preview-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        max-height: none;
+        overflow: visible;
+      }
+
+      .gallery-preview-card {
+        aspect-ratio: 1.15;
+        scroll-snap-align: none;
+      }
+
+      .gallery-card.gallery-collage-tile {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery-card.gallery-collage-tile img {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        max-width: none;
+        object-fit: fill;
+      }
+
+      .gallery-card.gallery-collage-tile:nth-child(1) img {
+        top: 0;
+        left: 0;
+      }
+
+      .gallery-card.gallery-collage-tile:nth-child(2) img {
+        top: 0;
+        left: -100%;
+      }
+
+      .gallery-card.gallery-collage-tile:nth-child(3) img {
+        top: -100%;
+        left: 0;
+      }
+
+      .gallery-card.gallery-collage-tile:nth-child(4) img {
+        top: -100%;
+        left: -100%;
       }
 
       .gallery-favorite {
@@ -450,6 +1398,160 @@
         font-size: 1.35rem;
         line-height: 1;
         box-shadow: 0 2px 8px rgba(30, 35, 61, 0.12);
+        cursor: pointer;
+      }
+
+      .gallery-favorite.is-favorite {
+        background: #ff5b93;
+        color: #fff;
+      }
+
+      .gallery-reactions {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 6px;
+      }
+
+      .gallery-reaction {
+        padding: 6px 9px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.72rem;
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+      }
+
+      .gallery-reaction.is-reacted {
+        background: #7547ed;
+        color: #fff;
+      }
+
+      .gallery-feed {
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: #17152d;
+      }
+
+      .gallery-feed[hidden] {
+        display: none;
+      }
+
+      .gallery-feed-slide {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        touch-action: none;
+      }
+
+      .gallery-feed-slide[hidden] {
+        display: none;
+      }
+
+      .gallery-feed-image-wrap {
+        position: relative;
+        width: min(92vw, 620px);
+        height: min(82vh, 760px);
+        overflow: hidden;
+        border-radius: 24px;
+        background: #f7eeee;
+      }
+
+      .gallery-feed-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gallery-feed-close {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        z-index: 2;
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--text);
+        font: inherit;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .gallery-feed-caption {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        left: 24px;
+        z-index: 2;
+        color: #fff;
+        font-size: 0.86rem;
+        font-weight: 800;
+        text-align: center;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      }
+
+      .gallery-feed-actions {
+        position: fixed;
+        right: 18px;
+        bottom: 110px;
+        z-index: 2;
+        display: grid;
+        gap: 14px;
+        justify-items: center;
+      }
+
+      .gallery-feed-like {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(23, 21, 45, 0.45);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        font-size: 1.9rem;
+        line-height: 1;
+        cursor: pointer;
+        transition: transform 160ms ease;
+      }
+
+      .gallery-feed-like:active {
+        transform: scale(0.86);
+      }
+
+      .gallery-feed-like.is-favorite {
+        color: #ff5b93;
+      }
+
+      .gallery-feed-heart {
+        position: fixed;
+        z-index: 3;
+        color: #ff5b93;
+        font-size: 7rem;
+        pointer-events: none;
+        animation: feed-heart-pop 800ms ease forwards;
+      }
+
+      @keyframes feed-heart-pop {
+        0% { opacity: 0; transform: scale(0.4); }
+        35% { opacity: 1; transform: scale(1.1); }
+        100% { opacity: 0; transform: scale(1.35); }
       }
 
       .affirmation {
@@ -498,6 +1600,62 @@
       }
 
       .affirmation-button span {
+        font-size: 1.8rem;
+        line-height: 0.6;
+      }
+
+      .future-family {
+        position: relative;
+        min-height: 200px;
+        margin: 0 28px 36px;
+        overflow: hidden;
+        padding: 28px 30px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #7547ed, #ff8a67);
+        color: #fff;
+      }
+
+      .future-family-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 420px;
+      }
+
+      .future-family-title {
+        margin: 0 0 18px;
+        font-size: clamp(1.35rem, 2.6vw, 2rem);
+        font-weight: 700;
+      }
+
+      .future-family-text {
+        margin: 0 0 22px;
+        font-size: clamp(0.95rem, 1.7vw, 1.25rem);
+        line-height: 1.4;
+        font-weight: 600;
+      }
+
+      .future-family-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .future-family-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 13px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: #fff;
+        color: #7547ed;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .future-family-button span {
         font-size: 1.8rem;
         line-height: 0.6;
       }
@@ -836,6 +1994,12 @@
         background: rgba(255, 255, 255, 0.5);
       }
 
+      .profile-stat-link {
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+      }
+
       .profile-stat strong {
         display: block;
         color: #7547ed;
@@ -909,6 +2073,167 @@
       .profile-affirmation {
         min-height: 220px;
         margin: 0;
+      }
+
+      .pro-page {
+        max-width: 640px;
+        margin: 0 auto 36px;
+        padding: 30px 34px 40px;
+        color: var(--text);
+      }
+
+      .pro-back {
+        padding: 8px 0;
+        border: 0;
+        background: transparent;
+        color: #7547ed;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .pro-heading {
+        margin: 18px 0 28px;
+        text-align: center;
+      }
+
+      .pro-crown {
+        display: inline-grid;
+        place-items: center;
+        width: 62px;
+        height: 62px;
+        margin-bottom: 12px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #7547ed, #ff5b93);
+        color: #fff;
+        font-size: 1.8rem;
+      }
+
+      .pro-title {
+        margin: 0;
+        font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+        letter-spacing: -0.04em;
+      }
+
+      .pro-subtitle {
+        margin: 8px auto 0;
+        max-width: 420px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .pro-features {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .pro-feature {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 14px 16px;
+        border: 1px solid rgba(117, 71, 237, 0.12);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .pro-feature-icon {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        flex: 0 0 auto;
+        border-radius: 50%;
+        background: #f4edff;
+        color: #7547ed;
+        font-size: 1.1rem;
+      }
+
+      .pro-plans {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .pro-plan {
+        position: relative;
+        padding: 18px 16px;
+        border: 2px solid rgba(117, 71, 237, 0.14);
+        border-radius: 18px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .pro-plan.active {
+        border-color: #7547ed;
+        background: #f4edff;
+      }
+
+      .pro-plan-badge {
+        position: absolute;
+        top: -11px;
+        right: 14px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: #ff5b93;
+        color: #fff;
+        font-size: 0.66rem;
+        font-weight: 800;
+      }
+
+      .pro-plan-name {
+        display: block;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .pro-plan-price {
+        display: block;
+        margin-top: 6px;
+        color: #7547ed;
+        font-size: 1.3rem;
+        font-weight: 800;
+      }
+
+      .pro-plan-price small {
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .pro-upgrade {
+        width: 100%;
+        padding: 16px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #7547ed, #ff5b93);
+        color: #fff;
+        font: inherit;
+        font-size: 0.96rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .pro-upgrade:disabled {
+        opacity: 0.75;
+        cursor: default;
+      }
+
+      .pro-note {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+        text-align: center;
       }
 
       .nutrition-page {
@@ -1330,7 +2655,7 @@
       }
 
       .page-section {
-        scroll-margin-top: 84px;
+        scroll-margin-top: 136px;
       }
 
       .bottom-nav {
@@ -1443,6 +2768,23 @@
           padding-right: 10px;
         }
 
+        .desktop-nav {
+          display: none;
+        }
+
+        .page-section {
+          scroll-margin-top: 84px;
+        }
+
+        .onboarding-page {
+          min-height: calc(100vh - 20px);
+          padding: 24px 18px 40px;
+        }
+
+        .onboarding-options {
+          grid-template-columns: 1fr;
+        }
+
         .brand {
           gap: 10px;
         }
@@ -1520,6 +2862,18 @@
           font-size: 0.82rem;
         }
 
+        .generate-page {
+          padding: 24px 18px 40px;
+        }
+
+        .generate-upload-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .generate-upload {
+          min-height: 190px;
+        }
+
         .quick-links {
           grid-template-columns: repeat(4, minmax(112px, 1fr));
           gap: 10px;
@@ -1558,11 +2912,39 @@
           margin-bottom: 12px;
         }
 
+        .gallery-tools {
+          padding: 0 18px 12px;
+        }
+
+        .gallery-generate-cta {
+          flex-direction: column;
+          align-items: stretch;
+          text-align: center;
+          margin: 0 18px 12px;
+        }
+
+        .gallery-generate-button {
+          width: 100%;
+        }
+
+        .gallery-hint {
+          margin: -2px 18px 12px;
+        }
+
+        .gallery-empty {
+          margin: 0 18px 12px;
+        }
+
         .gallery-list {
-          grid-template-columns: repeat(4, minmax(150px, 1fr));
           gap: 12px;
+          padding: 0 18px 8px;
+          max-height: 62vh;
+        }
+
+        .gallery-preview-list {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          max-height: none;
           padding: 0 18px;
-          overflow-x: auto;
         }
 
         .gallery-card {
@@ -1770,10 +3152,10 @@
         </div>
 
         <div class="header-actions">
-          <div class="pro-pill">
+          <button class="pro-pill" id="header-pro-pill" type="button" aria-label="View Pro membership">
             <img class="crown-img" src="icons/crown.png" alt="Pro crown">
             <span>Pro</span>
-          </div>
+          </button>
 
           <button class="header-profile" id="header-profile" type="button" aria-label="Profile">
             <img class="profile-img" src="icons/profile.png" alt="Profile" />
@@ -1781,8 +3163,145 @@
         </div>
       </header>
 
+      <nav class="desktop-nav" aria-label="Desktop primary navigation">
+        <button class="desktop-nav-item active" type="button" data-page="home">Home</button>
+        <button class="desktop-nav-item" type="button" data-page="gallery">Gallery</button>
+        <button class="desktop-nav-item" type="button" data-page="generate">Imagine</button>
+        <button class="desktop-nav-item" type="button" data-page="nutrition">Nutrition</button>
+        <button class="desktop-nav-item" type="button" data-page="affirmation">Affirmations</button>
+      </nav>
+
       <main class="content">
-        <section class="hero page-section" id="home" data-pages="home generate" aria-labelledby="hero-title">
+        <section class="onboarding-page page-section" id="onboarding" data-pages="onboarding" aria-labelledby="onboarding-title">
+          <div class="onboarding-panel">
+            <div class="onboarding-welcome-mark" id="onboarding-welcome-mark" aria-hidden="true">🍼</div>
+            <p class="onboarding-kicker">Welcome to FutureBaby</p>
+            <h1 class="onboarding-title" id="onboarding-title">Let’s make this feel personal.</h1>
+            <p class="onboarding-copy">A few gentle questions help us shape your baby journey. There are no right answers, and you can change your choices later.</p>
+            <div class="onboarding-progress" aria-live="polite">
+              <span id="onboarding-step-label">Question 1 of 10</span>
+              <span class="onboarding-progress-track"><span class="onboarding-progress-fill" id="onboarding-progress-fill"></span></span>
+            </div>
+            <p class="onboarding-mood" id="onboarding-mood">No pressure, just a tiny first step.</p>
+            <form class="onboarding-form" id="onboarding-form">
+              <div class="onboarding-step" data-step="0">
+                <h2 class="onboarding-step-title">How old are you?</h2>
+                <p class="onboarding-step-hint">This helps us make the experience feel more relevant.</p>
+                <div class="onboarding-field">
+                  <label for="onboarding-age">Your age</label>
+                  <input id="onboarding-age" name="age" type="number" min="18" max="70" placeholder="Enter your age" required>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="1" hidden>
+                <h2 class="onboarding-step-title">How many months along are you?</h2>
+                <p class="onboarding-step-hint">If you are not expecting yet, enter 0.</p>
+                <div class="onboarding-field">
+                  <label for="onboarding-months">Months along</label>
+                  <input id="onboarding-months" name="months" type="number" min="0" max="10" placeholder="0" required>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="2" hidden>
+                <h2 class="onboarding-step-title">Where are you in your journey?</h2>
+                <div class="onboarding-field">
+                  <label for="onboarding-stage">Your current stage</label>
+                  <select id="onboarding-stage" name="stage" required>
+                    <option value="" selected disabled>Choose one</option>
+                    <option>Thinking about having a baby</option>
+                    <option>Trying to conceive</option>
+                    <option>Expecting a baby</option>
+                    <option>Growing my family</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="3" hidden>
+                <h2 class="onboarding-step-title">What would feel most helpful right now?</h2>
+                <fieldset class="onboarding-options">
+                  <legend class="onboarding-legend">Choose one</legend>
+                  <label class="onboarding-option"><input type="radio" name="focus" value="visualize" required><span>Visualize my baby</span></label>
+                  <label class="onboarding-option"><input type="radio" name="focus" value="nourish"><span>Feel nourished</span></label>
+                  <label class="onboarding-option"><input type="radio" name="focus" value="calm"><span>Feel calm and hopeful</span></label>
+                </fieldset>
+              </div>
+
+              <div class="onboarding-step" data-step="4" hidden>
+                <h2 class="onboarding-step-title">What kind of support do you prefer?</h2>
+                <div class="onboarding-field">
+                  <label for="onboarding-preference">Your preference</label>
+                  <select id="onboarding-preference" name="preference" required>
+                    <option value="" selected disabled>Choose one</option>
+                    <option>Short daily inspiration</option>
+                    <option>Practical health and nutrition ideas</option>
+                    <option>A mix of both</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="5" hidden>
+                <h2 class="onboarding-step-title">What do you want your baby to feel first?</h2>
+                <p class="onboarding-step-hint">Your answer says something beautiful about your heart.</p>
+                <fieldset class="onboarding-options">
+                  <legend class="onboarding-legend">Choose one</legend>
+                  <label class="onboarding-option"><input type="radio" name="baby_feeling" value="loved" required><span>Deeply loved</span></label>
+                  <label class="onboarding-option"><input type="radio" name="baby_feeling" value="safe"><span>Safe and held</span></label>
+                  <label class="onboarding-option"><input type="radio" name="baby_feeling" value="free"><span>Free to be themselves</span></label>
+                </fieldset>
+              </div>
+
+              <div class="onboarding-step" data-step="6" hidden>
+                <h2 class="onboarding-step-title">What kind of mother do you hope to be?</h2>
+                <p class="onboarding-step-hint">There is no perfect answer, only your honest one.</p>
+                <fieldset class="onboarding-options">
+                  <legend class="onboarding-legend">Choose one</legend>
+                  <label class="onboarding-option"><input type="radio" name="mother_hope" value="patient" required><span>Patient and present</span></label>
+                  <label class="onboarding-option"><input type="radio" name="mother_hope" value="playful"><span>Playful and curious</span></label>
+                  <label class="onboarding-option"><input type="radio" name="mother_hope" value="strong"><span>Strong and gentle</span></label>
+                </fieldset>
+              </div>
+
+              <div class="onboarding-step" data-step="7" hidden>
+                <h2 class="onboarding-step-title">Who will be part of your support circle?</h2>
+                <div class="onboarding-field">
+                  <label for="onboarding-circle">Your support circle</label>
+                  <select id="onboarding-circle" name="support_circle" required>
+                    <option value="" selected disabled>Choose one</option>
+                    <option>My partner and family</option>
+                    <option>Close friends and family</option>
+                    <option>A community I am building</option>
+                    <option>I am taking this one step at a time</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="8" hidden>
+                <h2 class="onboarding-step-title">What do you want your baby to always know?</h2>
+                <p class="onboarding-step-hint">Write a few words they could carry forever.</p>
+                <div class="onboarding-field">
+                  <label for="onboarding-message">Your message</label>
+                  <textarea id="onboarding-message" name="baby_message" maxlength="180" placeholder="You are loved because..." required></textarea>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="9" hidden>
+                <h2 class="onboarding-step-title">What is one beautiful hope you carry?</h2>
+                <p class="onboarding-step-hint">This becomes the first little intention in your FutureBaby space.</p>
+                <div class="onboarding-field">
+                  <label for="onboarding-hope">Your hope</label>
+                  <input id="onboarding-hope" name="hope" type="text" maxlength="120" placeholder="A healthy, joyful future..." required>
+                </div>
+              </div>
+
+              <div class="onboarding-actions">
+                <button class="onboarding-previous" id="onboarding-previous" type="button" hidden>‹ Previous</button>
+                <button class="onboarding-submit" id="onboarding-next" type="button">Next <span aria-hidden="true">›</span></button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section class="hero page-section" id="home" data-pages="home" aria-labelledby="hero-title">
           <div class="hero-copy">
             <h1 class="hero-title" id="hero-title">
               Imagine Your
@@ -1826,7 +3345,61 @@
           </div>
         </section>
 
-        <section class="quick-links" aria-label="Quick access features">
+        <section class="generate-page page-section" id="generate-section" data-pages="generate" aria-labelledby="generate-title">
+          <div class="generate-heading">
+            <h1 class="generate-title" id="generate-title">Imagine your baby</h1>
+            <p class="generate-copy" id="generate-copy">Upload two clear photos, and our secure Replicate-powered service will create a baby image inspired by both.</p>
+          </div>
+
+          <div class="generate-mode-tools" role="tablist" aria-label="Choose what to generate">
+            <button class="generate-mode active" type="button" data-generate-mode="baby">Our baby ✦</button>
+            <button class="generate-mode" type="button" data-generate-mode="text">Baby from description ✦</button>
+            <button class="generate-mode" type="button" data-generate-mode="pregnancy">Pregnancy photo ✦</button>
+            <button class="generate-mode" type="button" data-generate-mode="family">Family photo ✦</button>
+          </div>
+
+          <form class="generate-form" id="generate-form">
+            <input type="hidden" name="generationMode" id="generate-mode-input" value="baby">
+            <div class="generate-upload-grid" id="generate-upload-grid">
+              <label class="generate-upload" for="parent-photo-one">
+                <input id="parent-photo-one" name="parentPhotoOne" type="file" accept="image/png,image/jpeg,image/webp" required>
+                <img class="generate-preview" id="parent-preview-one" alt="First uploaded parent photo preview">
+                <span class="generate-upload-content"><span class="generate-upload-icon" aria-hidden="true">＋</span><strong>Upload first photo</strong><small>JPG, PNG, or WebP</small></span>
+              </label>
+              <label class="generate-upload" for="parent-photo-two">
+                <input id="parent-photo-two" name="parentPhotoTwo" type="file" accept="image/png,image/jpeg,image/webp" required>
+                <img class="generate-preview" id="parent-preview-two" alt="Second uploaded parent photo preview">
+                <span class="generate-upload-content"><span class="generate-upload-icon" aria-hidden="true">＋</span><strong>Upload second photo</strong><small>JPG, PNG, or WebP</small></span>
+              </label>
+            </div>
+            <div class="generate-text-field" id="generate-text-field" hidden>
+              <label for="generate-description">Describe the baby you imagine</label>
+              <textarea id="generate-description" name="babyDescription" maxlength="300" placeholder="A happy 6-month-old baby girl with curly brown hair and bright eyes, wearing a soft yellow outfit..."></textarea>
+            </div>
+            <button class="generate-submit" id="generate-submit" type="submit" disabled>Generate our baby ✨</button>
+            <p class="generate-status" id="generate-status" role="status" aria-live="polite">Choose two photos to begin.</p>
+            <div class="generate-progress-panel" id="generate-progress-panel" aria-live="polite">
+              <div class="generate-progress-heading"><span id="generate-progress-stage">Waiting to start</span><span id="generate-progress-percent">0%</span></div>
+              <div class="generate-progress-track" role="progressbar" aria-label="Baby image generation progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="generate-progress-fill" id="generate-progress-fill"></span></div>
+              <p class="generate-progress-fun" id="generate-progress-fun">A little magic is getting ready...</p>
+            </div>
+            <img class="generate-result" id="generate-result" alt="Generated baby preview">
+          </form>
+        </section>
+
+        <div class="generate-modal" id="generate-modal" role="dialog" aria-modal="true" aria-labelledby="generate-modal-title" hidden>
+          <div class="generate-modal-card">
+            <button class="generate-modal-close" id="generate-modal-close" type="button" aria-label="Close generated image">×</button>
+            <h2 id="generate-modal-title" class="visually-hidden">Your generated baby image</h2>
+            <img class="generate-modal-image" id="generate-modal-image" alt="Generated baby image">
+            <div class="generate-modal-actions">
+              <button class="generate-modal-action primary" id="generate-share" type="button">Share</button>
+              <button class="generate-modal-action" id="generate-download" type="button">Download</button>
+            </div>
+          </div>
+        </div>
+
+        <section class="quick-links page-section" data-pages="home" aria-label="Quick access features">
           <div class="quick-link">
             <span class="quick-link-icon" aria-hidden="true">▣</span>
             <span class="quick-link-title">Browse Gallery</span>
@@ -1849,30 +3422,122 @@
           </div>
         </section>
 
-        <section class="gallery-section page-section" id="gallery-section" data-pages="home gallery favorites" aria-labelledby="gallery-title">
+        <section class="gallery-section page-section gallery-preview-section" id="gallery-preview-section" data-pages="home" aria-labelledby="gallery-preview-title">
+          <div class="gallery-heading">
+            <h2 class="gallery-title" id="gallery-preview-title">Beautiful Baby Gallery</h2>
+            <button class="gallery-view-all" id="gallery-preview-view-all" type="button">View All <span aria-hidden="true">›</span></button>
+          </div>
+          <div class="gallery-list gallery-preview-list">
+            <article class="gallery-card gallery-preview-card gallery-collage-tile" data-baby-type="bow">
+              <img src="images/home-babies.png" alt="Generated baby wearing a pink bow" />
+            </article>
+            <article class="gallery-card gallery-preview-card gallery-collage-tile" data-baby-type="curly">
+              <img src="images/home-babies.png" alt="Generated curly-haired baby" />
+            </article>
+            <article class="gallery-card gallery-preview-card gallery-collage-tile" data-baby-type="cozy">
+              <img src="images/home-babies.png" alt="Generated baby wearing a soft hood" />
+            </article>
+            <article class="gallery-card gallery-preview-card gallery-collage-tile" data-baby-type="cozy">
+              <img src="images/home-babies.png" alt="Generated baby in a cream outfit" />
+            </article>
+          </div>
+        </section>
+
+        <section class="gallery-section page-section" id="gallery-section" data-pages="gallery favorites" aria-labelledby="gallery-title">
           <div class="gallery-heading">
             <h2 class="gallery-title" id="gallery-title">Beautiful Baby Gallery</h2>
             <a class="gallery-view-all" href="#gallery">View All <span aria-hidden="true">›</span></a>
           </div>
+          <div class="gallery-generate-cta">
+            <div class="gallery-generate-copy">
+              <strong>Create your own baby</strong>
+              <span>Upload two photos and generate a brand-new baby portrait.</span>
+            </div>
+            <button class="gallery-generate-button" id="gallery-generate-action" type="button">Generate baby <span aria-hidden="true">✦</span></button>
+          </div>
+
+          <div class="gallery-tools" role="tablist" aria-label="Baby gallery filters">
+            <button class="gallery-filter active" type="button" data-gallery-filter="all">All babies</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="favorite">Favorites</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="generated" id="gallery-filter-generated">Your Generated Babies</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="bow">Bows</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="curly">Curly hair</button>
+            <button class="gallery-filter" type="button" data-gallery-filter="cozy">Cozy outfits</button>
+          </div>
+          <p class="gallery-hint">Scroll through the babies and double-tap to favorite.</p>
           <div class="gallery-list" id="gallery">
-            <article class="gallery-card">
-              <img src="baby-1.jpg" alt="Smiling baby wearing a bow" />
-              <span class="gallery-favorite" aria-label="Favorite">♡</span>
+            <article class="gallery-card" data-baby-type="bow">
+              <img src="images/generated-baby-1.jpg" alt="Generated baby wearing a pink bow" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
             </article>
-            <article class="gallery-card">
-              <img src="baby-2.jpg" alt="Curly-haired smiling baby" />
-              <span class="gallery-favorite" aria-label="Favorite">♡</span>
+            <article class="gallery-card" data-baby-type="curly">
+              <img src="images/generated-baby-2.jpg" alt="Generated curly-haired baby" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
             </article>
-            <article class="gallery-card">
-              <img src="baby-3.jpg" alt="Baby wearing a soft hood" />
-              <span class="gallery-favorite" aria-label="Favorite">♡</span>
+            <article class="gallery-card" data-baby-type="cozy">
+              <img src="images/generated-baby-3.jpg" alt="Generated baby wearing a soft hood" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
             </article>
-            <article class="gallery-card">
-              <img src="baby-4.jpg" alt="Smiling baby in a cream outfit" />
-              <span class="gallery-favorite" aria-label="Favorite">♡</span>
+            <article class="gallery-card" data-baby-type="cozy">
+              <img src="images/generated-baby-4.jpg" alt="Generated baby in a cream outfit" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby">♡</button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
             </article>
           </div>
+          <p class="gallery-empty" id="gallery-empty" hidden>No babies match this filter.</p>
+
+          <div class="gallery-load-more" id="gallery-load-more" hidden>
+            <button class="gallery-load-more-button" id="gallery-load-more-button" type="button">Load more babies</button>
+            <div class="gallery-upgrade-cta" id="gallery-upgrade-cta" hidden>
+              <p>You've reached the free preview limit.</p>
+              <button class="gallery-upgrade-button" id="gallery-upgrade-button" type="button">Subscribe to see more babies ✦</button>
+            </div>
+          </div>
         </section>
+
+        <div class="gallery-feed" id="gallery-feed" role="dialog" aria-modal="true" aria-label="Full-screen baby viewer" hidden>
+          <button class="gallery-feed-close" id="gallery-feed-close" type="button" aria-label="Close full-screen viewer">×</button>
+          <div class="gallery-feed-slide" data-feed-index="0">
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-1.jpg" alt="Baby wearing a pink bow"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="1" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-2.jpg" alt="Curly-haired baby"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="2" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-3.jpg" alt="Baby wearing a soft hood"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="3" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-4.jpg" alt="Baby in a cream outfit"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby">♡</button>
+            </div>
+          </div>
+          <p class="gallery-feed-caption">Swipe to explore · Double-tap to like</p>
+        </div>
 
         <section class="profile-page page-section" id="profile-section" data-pages="profile" aria-label="Profile page" aria-labelledby="profile-title">
           <div class="profile-heading">
@@ -1902,7 +3567,7 @@
           <div class="profile-stats" aria-label="Profile summary">
             <div class="profile-stat"><strong>12</strong><span>Favorites</span></div>
             <div class="profile-stat"><strong>8</strong><span>Affirmations</span></div>
-            <div class="profile-stat"><strong>Pro</strong><span>Membership</span></div>
+            <button class="profile-stat profile-stat-link" id="profile-pro-stat" type="button"><strong id="profile-pro-stat-value">Pro</strong><span>Membership</span></button>
           </div>
 
           <div class="profile-options" aria-label="Profile options">
@@ -1916,8 +3581,46 @@
               <span class="profile-option-copy"><strong>My affirmations</strong><span>Positive thoughts for your journey</span></span>
               <span class="profile-option-arrow" aria-hidden="true">›</span>
             </button>
+            <button class="profile-option" id="profile-go-pro" type="button">
+              <span class="profile-option-icon" aria-hidden="true">♛</span>
+              <span class="profile-option-copy"><strong>Go Pro</strong><span>Unlock the full BabyBloom experience</span></span>
+              <span class="profile-option-arrow" aria-hidden="true">›</span>
+            </button>
           </div>
 
+        </section>
+
+        <section class="pro-page page-section" id="pro-section" data-pages="pro" aria-labelledby="pro-title">
+          <button class="pro-back" id="pro-back" type="button">‹ Back to profile</button>
+
+          <div class="pro-heading">
+            <span class="pro-crown" aria-hidden="true">♛</span>
+            <h1 class="pro-title" id="pro-title">BabyBloom Pro</h1>
+            <p class="pro-subtitle">Unlock the full experience for your future family journey.</p>
+          </div>
+
+          <div class="pro-features" aria-label="Pro features">
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">✦</span><span>Unlimited baby generations, every day</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">◆</span><span>No watermark on your generated photos</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">⚡</span><span>Priority processing, faster results</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">⌕</span><span>Full gallery search and unlimited favorites</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">✾</span><span>Exclusive affirmations and daily visualizations</span></div>
+          </div>
+
+          <div class="pro-plans" role="radiogroup" aria-label="Choose a Pro plan">
+            <button class="pro-plan active" type="button" data-plan="monthly" role="radio" aria-checked="true">
+              <span class="pro-plan-name">Monthly</span>
+              <span class="pro-plan-price">$4.99<small>/mo</small></span>
+            </button>
+            <button class="pro-plan" type="button" data-plan="yearly" role="radio" aria-checked="false">
+              <span class="pro-plan-badge">Best value</span>
+              <span class="pro-plan-name">Yearly</span>
+              <span class="pro-plan-price">$39.99<small>/yr</small></span>
+            </button>
+          </div>
+
+          <button class="pro-upgrade" id="pro-upgrade" type="button">Upgrade to Pro <span aria-hidden="true">✦</span></button>
+          <p class="pro-note" id="pro-note">Cancel anytime. No commitment.</p>
         </section>
 
         <section class="affirmation page-section" id="affirmation-section" data-pages="home affirmation" aria-label="Affirmation page" aria-labelledby="affirmation-title">
@@ -1925,6 +3628,17 @@
             <h2 class="affirmation-title" id="affirmation-title">Daily Baby Affirmation&nbsp; ♥</h2>
             <p class="affirmation-text">I welcome a beautiful, healthy<br />and loving baby into my future. 💜</p>
             <button class="affirmation-button" id="affirmation-button" type="button">New Affirmation <span aria-hidden="true">›</span></button>
+          </div>
+        </section>
+
+        <section class="future-family page-section" id="future-family-section" data-pages="home" aria-labelledby="future-family-title">
+          <div class="future-family-copy">
+            <h2 class="future-family-title" id="future-family-title">How your happy family will look</h2>
+            <p class="future-family-text">See a pregnancy photoshoot, or you and your partner holding your future baby together. 👨‍👩‍👧</p>
+            <div class="future-family-actions">
+              <button class="future-family-button" id="future-family-pregnancy-button" type="button">Pregnancy photo <span aria-hidden="true">›</span></button>
+              <button class="future-family-button" id="future-family-button" type="button">Family photo <span aria-hidden="true">›</span></button>
+            </div>
           </div>
         </section>
 
@@ -1969,13 +3683,13 @@
             <section class="nutrition-goal" aria-labelledby="hydration-title">
               <div class="nutrition-goal-header">
                 <strong id="hydration-title">Hydration</strong>
-                <span class="nutrition-goal-value" id="water-summary">6 / 8</span>
+                <span class="nutrition-goal-value" id="water-summary">0 / 8</span>
               </div>
               <p class="nutrition-goal-copy">Small, regular sips are easier than catching up at night.</p>
-              <div class="nutrition-meter" role="progressbar" aria-label="Hydration progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="6"><span class="nutrition-meter-fill" id="water-progress"></span></div>
-              <p class="nutrition-goal-status" id="water-message" aria-live="polite">Two glasses to go. You are doing great.</p>
+              <div class="nutrition-meter" role="progressbar" aria-label="Hydration progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0"><span class="nutrition-meter-fill" id="water-progress"></span></div>
+              <p class="nutrition-goal-status" id="water-message" aria-live="polite">8 glasses to go. You are doing great.</p>
               <div class="nutrition-goal-footer">
-                <span id="water-count">6 glasses logged today</span>
+                <span id="water-count">0 of 8 glasses today</span>
                 <div class="nutrition-stepper" aria-label="Update glasses of water">
                   <button class="nutrition-control" id="water-remove" type="button" aria-label="Remove one glass">-</button>
                   <button class="nutrition-control" id="water-add" type="button" aria-label="Add one glass">+</button>
@@ -2047,20 +3761,24 @@
 
     <script>
       const pageSections = document.querySelectorAll('.page-section');
-      const navItems = document.querySelectorAll('.nav-item');
+      const navItems = document.querySelectorAll('.nav-item, .desktop-nav-item');
 
       const pageTargets = {
+        onboarding: 'onboarding',
         home: 'home',
         gallery: 'gallery-section',
-        generate: 'generate-action',
+        generate: 'generate-section',
         favorites: 'gallery-section',
         nutrition: 'nutrition-section',
         affirmation: 'affirmation-section',
         'affirmation-detail': 'affirmation-detail',
         profile: 'profile-section',
+        pro: 'pro-section',
       };
 
       function showPage(pageName, shouldScroll = true) {
+        document.querySelector('.phone-shell').classList.toggle('onboarding-active', pageName === 'onboarding');
+
         pageSections.forEach((section) => {
           section.hidden = !section.dataset.pages.split(' ').includes(pageName);
         });
@@ -2079,6 +3797,677 @@
 
       navItems.forEach((item) => {
         item.addEventListener('click', () => showPage(item.dataset.page));
+      });
+
+      const galleryCards = [...document.querySelectorAll('#gallery-section .gallery-card')];
+      const galleryList = document.getElementById('gallery');
+      const galleryFilters = document.querySelectorAll('.gallery-filter');
+      const galleryEmpty = document.getElementById('gallery-empty');
+      const galleryFavorites = JSON.parse(localStorage.getItem('futureBabyGalleryFavorites') || '[]');
+      let galleryActiveFilter = 'all';
+      let proMembership = JSON.parse(localStorage.getItem('futureBabyPro') || 'null');
+
+      function isProMember() {
+        return Boolean(proMembership);
+      }
+
+      const GALLERY_PAGE_SIZE = 3;
+      let galleryVisibleLimit = GALLERY_PAGE_SIZE;
+      const galleryLoadMore = document.getElementById('gallery-load-more');
+      const galleryLoadMoreButton = document.getElementById('gallery-load-more-button');
+      const galleryUpgradeCta = document.getElementById('gallery-upgrade-cta');
+
+      const GENERATED_IMAGES_KEY = 'futureBabyGeneratedImages';
+      const galleryFilterGenerated = document.getElementById('gallery-filter-generated');
+
+      function loadGeneratedImages() {
+        try {
+          return JSON.parse(localStorage.getItem(GENERATED_IMAGES_KEY) || '[]');
+        } catch (error) {
+          return [];
+        }
+      }
+
+      function saveGeneratedImages(images) {
+        localStorage.setItem(GENERATED_IMAGES_KEY, JSON.stringify(images));
+      }
+
+      function toggleGeneratedFavorite(url) {
+        const images = loadGeneratedImages().map((image) => (
+          image.url === url ? { ...image, favorite: !image.favorite } : image
+        ));
+        saveGeneratedImages(images);
+        renderGeneratedImagesInGallery();
+        applyGalleryFilters();
+      }
+
+      function removeGeneratedImage(url) {
+        saveGeneratedImages(loadGeneratedImages().filter((entry) => entry.url !== url));
+        renderGeneratedImagesInGallery();
+        applyGalleryFilters();
+      }
+
+      function renderGeneratedImagesInGallery() {
+        document.querySelectorAll('#gallery .gallery-card[data-generated-url]').forEach((card) => card.remove());
+
+        const images = loadGeneratedImages();
+        images.forEach((image) => {
+          const card = document.createElement('article');
+          card.className = 'gallery-card';
+          card.dataset.babyType = 'generated';
+          card.dataset.generatedUrl = image.url;
+
+          const img = document.createElement('img');
+          img.src = image.url;
+          img.alt = `Baby generated from ${image.mode}`;
+          img.loading = 'lazy';
+          img.addEventListener('click', () => openGenerateModal(image.url));
+
+          const favoriteButton = document.createElement('button');
+          favoriteButton.type = 'button';
+          favoriteButton.className = 'gallery-favorite gallery-generated-favorite';
+          favoriteButton.classList.toggle('is-favorite', Boolean(image.favorite));
+          favoriteButton.setAttribute('aria-label', 'Favorite this baby');
+          favoriteButton.textContent = image.favorite ? '♥' : '♡';
+          favoriteButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleGeneratedFavorite(image.url);
+          });
+
+          const modeBadge = document.createElement('span');
+          modeBadge.className = 'gallery-generated-mode';
+          modeBadge.textContent = image.mode;
+
+          const removeButton = document.createElement('button');
+          removeButton.type = 'button';
+          removeButton.className = 'gallery-generated-remove';
+          removeButton.setAttribute('aria-label', 'Remove this generated baby');
+          removeButton.textContent = '×';
+          removeButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            removeGeneratedImage(image.url);
+          });
+
+          card.append(img, favoriteButton, modeBadge, removeButton);
+          galleryList.prepend(card);
+        });
+
+        galleryFilterGenerated.textContent = `Your Generated Babies (${images.length})`;
+      }
+
+      function addGeneratedImage(url, mode) {
+        const images = loadGeneratedImages();
+        images.unshift({ url, mode, createdAt: Date.now() });
+        saveGeneratedImages(images);
+        renderGeneratedImagesInGallery();
+        applyGalleryFilters();
+      }
+
+      renderGeneratedImagesInGallery();
+
+
+      function showFavoriteHeart(target) {
+        const rect = target.getBoundingClientRect();
+        const heart = document.createElement('span');
+        heart.className = 'gallery-feed-heart';
+        heart.textContent = '♥';
+        heart.style.left = `${rect.left + rect.width / 2}px`;
+        heart.style.top = `${rect.top + rect.height / 2}px`;
+        heart.style.marginLeft = '-56px';
+        heart.style.marginTop = '-56px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 850);
+      }
+
+      function applyGalleryFilters() {
+        let visibleCount = 0;
+        let matchingCount = 0;
+
+        galleryList.querySelectorAll('.gallery-card').forEach((card) => {
+          const matchesType = galleryActiveFilter === 'all' || galleryActiveFilter === card.dataset.babyType;
+          const matchesFavorite = galleryActiveFilter !== 'favorite' || card.querySelector('.gallery-favorite').classList.contains('is-favorite');
+          const matchesFilter = matchesType && matchesFavorite;
+          if (matchesFilter) matchingCount += 1;
+          const isVisible = matchesFilter && matchingCount <= galleryVisibleLimit;
+          card.classList.toggle('is-hidden', !isVisible);
+          if (isVisible) visibleCount += 1;
+        });
+
+        galleryEmpty.hidden = visibleCount > 0;
+
+        const hasMore = matchingCount > galleryVisibleLimit;
+        const showUpgrade = hasMore && !isProMember();
+        galleryLoadMore.hidden = !hasMore;
+        galleryLoadMoreButton.hidden = showUpgrade;
+        galleryUpgradeCta.hidden = !showUpgrade;
+      }
+
+      galleryCards.forEach((card, index) => {
+        const favoriteButton = card.querySelector('.gallery-favorite');
+        if (galleryFavorites.includes(index)) favoriteButton.classList.add('is-favorite');
+
+        function toggleCardFavorite() {
+          favoriteButton.classList.toggle('is-favorite');
+          const nextFavorites = galleryCards
+            .map((galleryCard, cardIndex) => galleryCard.querySelector('.gallery-favorite').classList.contains('is-favorite') ? cardIndex : null)
+            .filter((cardIndex) => cardIndex !== null);
+          localStorage.setItem('futureBabyGalleryFavorites', JSON.stringify(nextFavorites));
+          if (galleryActiveFilter === 'favorite') applyGalleryFilters();
+        }
+
+        favoriteButton.addEventListener('click', toggleCardFavorite);
+
+        card.querySelectorAll('.gallery-reaction').forEach((reactionButton) => {
+          reactionButton.addEventListener('click', () => {
+            const countMatch = reactionButton.textContent.match(/(\d+)$/);
+            const count = Number(countMatch?.[1] || 0) + 1;
+            reactionButton.textContent = `${reactionButton.dataset.reaction === 'love' ? '♡' : 'Cute'} ${count}`;
+            reactionButton.classList.add('is-reacted');
+          });
+        });
+
+        let cardClickTimer = null;
+        card.querySelector('img').addEventListener('click', (event) => {
+          if (cardClickTimer) {
+            clearTimeout(cardClickTimer);
+            cardClickTimer = null;
+            toggleCardFavorite();
+            if (!favoriteButton.classList.contains('is-favorite')) return;
+            showFavoriteHeart(event.currentTarget);
+            return;
+          }
+          cardClickTimer = setTimeout(() => {
+            cardClickTimer = null;
+            openGalleryFeed(index);
+          }, 260);
+        });
+      });
+
+      galleryFilters.forEach((filterButton) => {
+        filterButton.addEventListener('click', () => {
+          galleryFilters.forEach((button) => button.classList.toggle('active', button === filterButton));
+          galleryActiveFilter = filterButton.dataset.galleryFilter;
+          galleryVisibleLimit = GALLERY_PAGE_SIZE;
+          applyGalleryFilters();
+        });
+      });
+
+      galleryLoadMoreButton.addEventListener('click', () => {
+        galleryVisibleLimit += GALLERY_PAGE_SIZE;
+        applyGalleryFilters();
+      });
+
+      document.getElementById('gallery-upgrade-button').addEventListener('click', () => showPage('pro'));
+
+      applyGalleryFilters();
+
+      document.getElementById('gallery-generate-action').addEventListener('click', () => showPage('generate'));
+
+      const galleryPreviewCards = [...document.querySelectorAll('#gallery-preview-section .gallery-card')];
+      const galleryPreviewViewAll = document.getElementById('gallery-preview-view-all');
+
+      galleryPreviewCards.forEach((card, index) => {
+        card.addEventListener('click', () => openGalleryFeed(index));
+      });
+
+      galleryPreviewViewAll.addEventListener('click', () => showPage('gallery'));
+
+      const galleryFeed = document.getElementById('gallery-feed');
+      const galleryFeedSlides = [...document.querySelectorAll('.gallery-feed-slide')];
+      const galleryFeedClose = document.getElementById('gallery-feed-close');
+      let galleryFeedIndex = 0;
+      let galleryTouchStartY = 0;
+      let galleryPointerStartY = 0;
+      let galleryWheelLocked = false;
+
+      function syncGalleryFeedLike(index) {
+        const likeButton = galleryFeedSlides[index]?.querySelector('.gallery-feed-like');
+        if (!likeButton) return;
+        const isFavorite = galleryCards[index].querySelector('.gallery-favorite').classList.contains('is-favorite');
+        likeButton.classList.toggle('is-favorite', isFavorite);
+        likeButton.textContent = isFavorite ? '♥' : '♡';
+      }
+
+      function showGalleryFeedSlide(index) {
+        galleryFeedIndex = (index + galleryFeedSlides.length) % galleryFeedSlides.length;
+        galleryFeedSlides.forEach((slide, slideIndex) => {
+          slide.hidden = slideIndex !== galleryFeedIndex;
+        });
+        syncGalleryFeedLike(galleryFeedIndex);
+      }
+
+      function openGalleryFeed(index) {
+        showGalleryFeedSlide(index);
+        galleryFeed.hidden = false;
+        galleryFeedClose.focus();
+      }
+
+      function closeGalleryFeed() {
+        galleryFeed.hidden = true;
+      }
+
+      galleryFeedClose.addEventListener('click', closeGalleryFeed);
+      galleryFeed.addEventListener('click', (event) => {
+        if (event.target === galleryFeed) closeGalleryFeed();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (galleryFeed.hidden) return;
+        if (event.key === 'Escape') closeGalleryFeed();
+        if (event.key === 'ArrowDown') showGalleryFeedSlide(galleryFeedIndex + 1);
+        if (event.key === 'ArrowUp') showGalleryFeedSlide(galleryFeedIndex - 1);
+      });
+
+      galleryFeed.addEventListener('touchstart', (event) => {
+        galleryTouchStartY = event.changedTouches[0].clientY;
+      }, { passive: true });
+
+      galleryFeed.addEventListener('touchend', (event) => {
+        const distance = event.changedTouches[0].clientY - galleryTouchStartY;
+        if (Math.abs(distance) < 45) return;
+        showGalleryFeedSlide(galleryFeedIndex + (distance < 0 ? 1 : -1));
+      }, { passive: true });
+
+      galleryFeed.addEventListener('pointerdown', (event) => {
+        galleryPointerStartY = event.clientY;
+        event.target.setPointerCapture?.(event.pointerId);
+      });
+
+      galleryFeed.addEventListener('pointerup', (event) => {
+        const distance = event.clientY - galleryPointerStartY;
+        if (Math.abs(distance) < 45) return;
+        showGalleryFeedSlide(galleryFeedIndex + (distance < 0 ? 1 : -1));
+      });
+
+      galleryFeed.addEventListener('wheel', (event) => {
+        if (galleryWheelLocked || Math.abs(event.deltaY) < 20) return;
+        galleryWheelLocked = true;
+        showGalleryFeedSlide(galleryFeedIndex + (event.deltaY > 0 ? 1 : -1));
+        setTimeout(() => { galleryWheelLocked = false; }, 350);
+      }, { passive: true });
+
+      galleryFeedSlides.forEach((slide, index) => {
+        const feedImageWrap = slide.querySelector('.gallery-feed-image-wrap');
+        feedImageWrap.addEventListener('dblclick', () => {
+          const favoriteButton = galleryCards[index].querySelector('.gallery-favorite');
+          favoriteButton.click();
+          syncGalleryFeedLike(index);
+          if (favoriteButton.classList.contains('is-favorite')) showFavoriteHeart(feedImageWrap);
+        });
+
+        slide.querySelector('.gallery-feed-like').addEventListener('click', () => {
+          galleryCards[index].querySelector('.gallery-favorite').click();
+          syncGalleryFeedLike(index);
+        });
+      });
+
+      document.getElementById('generate-action').addEventListener('click', () => {
+        showPage('generate');
+      });
+
+      const generateForm = document.getElementById('generate-form');
+      const generateSubmit = document.getElementById('generate-submit');
+      const generateStatus = document.getElementById('generate-status');
+      const generateResult = document.getElementById('generate-result');
+      const generateProgressPanel = document.getElementById('generate-progress-panel');
+      const generateProgressStage = document.getElementById('generate-progress-stage');
+      const generateProgressPercent = document.getElementById('generate-progress-percent');
+      const generateProgressFill = document.getElementById('generate-progress-fill');
+      const generateProgressBar = generateProgressFill.parentElement;
+      const generateProgressFun = document.getElementById('generate-progress-fun');
+      const generateModal = document.getElementById('generate-modal');
+      const generateModalImage = document.getElementById('generate-modal-image');
+      const generateModalClose = document.getElementById('generate-modal-close');
+      const generateShare = document.getElementById('generate-share');
+      const generateDownload = document.getElementById('generate-download');
+      const apiBaseUrl = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
+      const generateModeButtons = document.querySelectorAll('.generate-mode');
+      const generateModeInput = document.getElementById('generate-mode-input');
+      const generateTitle = document.getElementById('generate-title');
+      const generateCopy = document.getElementById('generate-copy');
+      const generateUploadGrid = document.getElementById('generate-upload-grid');
+      const generateTextField = document.getElementById('generate-text-field');
+      const generateDescription = document.getElementById('generate-description');
+      const generateModeCopy = {
+        baby: {
+          title: 'Imagine your baby',
+          copy: 'Upload two clear photos, and our secure Replicate-powered service will create a baby image inspired by both.',
+          submit: 'Generate our baby ✨',
+          status: 'Choose two photos to begin.',
+          usesPhotos: true
+        },
+        text: {
+          title: 'Imagine a baby from your description',
+          copy: 'Describe the baby you imagine, and our secure Replicate-powered service will create it for you.',
+          submit: 'Generate from description ✨',
+          status: 'Describe your baby to begin.',
+          usesPhotos: false
+        },
+        pregnancy: {
+          title: 'Imagine your pregnancy photo',
+          copy: 'Upload two clear photos, and we will create a pregnancy photoshoot for the two of you.',
+          submit: 'Generate pregnancy photo ✨',
+          status: 'Choose two photos to begin.',
+          usesPhotos: true
+        },
+        family: {
+          title: 'Imagine your happy family',
+          copy: 'Upload two clear photos to see the two of you joyfully holding your future baby.',
+          submit: 'Generate family photo ✨',
+          status: 'Choose two photos to begin.',
+          usesPhotos: true
+        }
+      };
+
+      function setGenerateMode(mode) {
+        const usesPhotos = generateModeCopy[mode].usesPhotos;
+        generateModeInput.value = mode;
+        generateModeButtons.forEach((button) => button.classList.toggle('active', button.dataset.generateMode === mode));
+        generateTitle.textContent = generateModeCopy[mode].title;
+        generateCopy.textContent = generateModeCopy[mode].copy;
+        generateSubmit.textContent = generateModeCopy[mode].submit;
+        generateStatus.textContent = generateModeCopy[mode].status;
+        generateUploadGrid.hidden = !usesPhotos;
+        generateTextField.hidden = usesPhotos;
+        // hidden required inputs block native form submission, so toggle required to match visibility
+        photoInputs.forEach(({ input }) => { input.required = usesPhotos; });
+        generateDescription.required = !usesPhotos;
+        updateGenerateState(false);
+      }
+
+      generateModeButtons.forEach((button) => {
+        button.addEventListener('click', () => setGenerateMode(button.dataset.generateMode));
+      });
+
+      document.getElementById('future-family-pregnancy-button').addEventListener('click', () => {
+        setGenerateMode('pregnancy');
+        showPage('generate');
+      });
+
+      document.getElementById('future-family-button').addEventListener('click', () => {
+        setGenerateMode('family');
+        showPage('generate');
+      });
+
+      const photoInputs = [
+        { input: document.getElementById('parent-photo-one'), card: document.querySelector('label[for="parent-photo-one"]'), preview: document.getElementById('parent-preview-one') },
+        { input: document.getElementById('parent-photo-two'), card: document.querySelector('label[for="parent-photo-two"]'), preview: document.getElementById('parent-preview-two') }
+      ];
+
+      function updateGenerateState(announce = true) {
+        const mode = generateModeInput.value;
+        const isReady = generateModeCopy[mode].usesPhotos
+          ? photoInputs.every(({ input }) => input.files.length > 0)
+          : generateDescription.value.trim().length > 0;
+        generateSubmit.disabled = !isReady;
+        if (isReady && announce) {
+          generateStatus.textContent = generateModeCopy[mode].usesPhotos
+            ? 'Two photos ready. Let’s make something beautiful.'
+            : 'Description ready. Let’s make something beautiful.';
+        }
+      }
+
+      generateDescription.addEventListener('input', () => updateGenerateState());
+
+      function setGenerateProgress(percent, stage) {
+        const funMessages = {
+          'Starting generation': 'Warming up the baby-making magic... 🪄',
+          'Preparing photos': 'Mixing two beautiful smiles together... 💜',
+          'Sending request': 'Sending your wishes into the cloud... ☁️',
+          'Replicate is processing': 'Tiny details are coming to life... ✨',
+          'Generation complete': 'Your beautiful surprise is ready! 🎉',
+          'Generation stopped': 'The magic needs one more try.'
+        };
+
+        generateProgressFill.style.width = `${percent}%`;
+        generateProgressPercent.textContent = `${percent}%`;
+        generateProgressStage.textContent = stage;
+        generateProgressFun.textContent = funMessages[stage] || 'A little magic is getting ready...';
+        generateProgressBar.setAttribute('aria-valuenow', percent);
+      }
+
+      let activeModalImageUrl = '';
+
+      function openGenerateModal(imageUrl = generateResult.src) {
+        activeModalImageUrl = imageUrl;
+        generateModalImage.src = imageUrl;
+        generateModal.hidden = false;
+        generateModalClose.focus();
+      }
+
+      function closeGenerateModal() {
+        generateModal.hidden = true;
+      }
+
+      generateResult.addEventListener('click', () => openGenerateModal());
+      generateModalClose.addEventListener('click', closeGenerateModal);
+      generateModal.addEventListener('click', (event) => {
+        if (event.target === generateModal) closeGenerateModal();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !generateModal.hidden) closeGenerateModal();
+      });
+
+      function legacyCopyToClipboard(text) {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.style.position = 'fixed';
+        tempInput.style.opacity = '0';
+        document.body.appendChild(tempInput);
+        tempInput.focus();
+        tempInput.select();
+        const copied = document.execCommand('copy');
+        tempInput.remove();
+        return copied;
+      }
+
+      generateShare.addEventListener('click', async () => {
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: 'My FutureBaby image', text: 'Look at this beautiful FutureBaby image.', url: activeModalImageUrl });
+            generateStatus.textContent = 'Image shared successfully. ✨';
+          } else if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(activeModalImageUrl);
+            generateStatus.textContent = 'Image link copied. You can share it anywhere.';
+          } else if (legacyCopyToClipboard(activeModalImageUrl)) {
+            generateStatus.textContent = 'Image link copied. You can share it anywhere.';
+          } else {
+            window.open(activeModalImageUrl, '_blank', 'noopener');
+            generateStatus.textContent = 'Opened the image in a new tab. Copy the link to share it.';
+          }
+        } catch (error) {
+          if (error.name !== 'AbortError') generateStatus.textContent = 'Sharing was cancelled.';
+        }
+      });
+
+      generateDownload.addEventListener('click', async () => {
+        try {
+          const imageResponse = await fetch(activeModalImageUrl);
+          const imageBlob = await imageResponse.blob();
+          const downloadUrl = URL.createObjectURL(imageBlob);
+          const downloadLink = document.createElement('a');
+          downloadLink.href = downloadUrl;
+          downloadLink.download = 'futurebaby-generated.png';
+          downloadLink.click();
+          URL.revokeObjectURL(downloadUrl);
+          generateStatus.textContent = 'Download started. ✨';
+        } catch (error) {
+          window.open(activeModalImageUrl, '_blank', 'noopener');
+          generateStatus.textContent = 'Opened the image in a new tab to save.';
+        }
+      });
+
+      photoInputs.forEach(({ input, card, preview }) => {
+        input.addEventListener('change', () => {
+          const selectedFile = input.files[0];
+          if (!selectedFile) return;
+
+          if (selectedFile.size > 10 * 1024 * 1024) {
+            input.value = '';
+            generateStatus.textContent = 'Please choose photos smaller than 10 MB.';
+            return;
+          }
+
+          preview.src = URL.createObjectURL(selectedFile);
+          card.classList.add('has-image');
+          updateGenerateState();
+        });
+      });
+
+      generateForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const mode = generateModeInput.value;
+        const isReady = generateModeCopy[mode].usesPhotos
+          ? photoInputs.every(({ input }) => input.files.length > 0)
+          : generateDescription.value.trim().length > 0;
+        if (!isReady) return;
+
+        generateSubmit.disabled = true;
+        generateStatus.textContent = 'Creating your image... this may take a little moment.';
+        generateResult.classList.remove('visible');
+        generateProgressPanel.classList.add('visible');
+        setGenerateProgress(5, 'Starting generation');
+        setGenerateProgress(20, 'Preparing photos');
+        setGenerateProgress(35, 'Sending request');
+        let progressTimer = setInterval(() => {
+          const currentPercent = Number.parseInt(generateProgressPercent.textContent, 10);
+          if (currentPercent < 85) setGenerateProgress(currentPercent + 5, 'Replicate is processing');
+        }, 1800);
+
+        try {
+          const response = await fetch(`${apiBaseUrl}/api/generate-baby`, {
+            method: 'POST',
+            body: new FormData(generateForm)
+          });
+
+          if (!response.ok) {
+            const errorBody = await response.json().catch(() => ({}));
+            throw new Error(errorBody.error || 'Generation request failed');
+          }
+
+          const result = await response.json();
+          const imageUrl = Array.isArray(result.output) ? result.output[0] : (result.imageUrl || result.output);
+          if (!imageUrl) throw new Error('The service returned no image');
+
+          generateResult.src = imageUrl;
+          generateResult.classList.add('visible');
+          addGeneratedImage(imageUrl, mode);
+          openGenerateModal(imageUrl);
+          setGenerateProgress(100, 'Generation complete');
+          generateStatus.textContent = 'Your baby image is ready. ✨';
+        } catch (error) {
+          setGenerateProgress(85, 'Generation stopped');
+          generateStatus.textContent = error.message === 'Replicate is not configured yet.'
+            ? 'Add your Replicate token and model to .env, then restart the Node server.'
+            : error.message === 'Failed to fetch'
+              ? 'Start the Node server with npm start, then try again.'
+              : error.message;
+        } finally {
+          clearInterval(progressTimer);
+          updateGenerateState(false);
+        }
+      });
+
+      const onboardingForm = document.getElementById('onboarding-form');
+      const onboardingSteps = [...document.querySelectorAll('.onboarding-step')];
+      const onboardingPrevious = document.getElementById('onboarding-previous');
+      const onboardingNext = document.getElementById('onboarding-next');
+      const onboardingStepLabel = document.getElementById('onboarding-step-label');
+      const onboardingProgressFill = document.getElementById('onboarding-progress-fill');
+      const onboardingWelcomeMark = document.getElementById('onboarding-welcome-mark');
+      const onboardingMood = document.getElementById('onboarding-mood');
+      const onboardingMoments = [
+        ['🍼', 'No pressure, just a tiny first step.', 'Let’s begin'],
+        ['🌙', 'A little context helps us meet you where you are.', 'Next question'],
+        ['🌱', 'Every journey grows in its own beautiful way.', 'Keep going'],
+        ['✨', 'Choose the kind of magic you need today.', 'I’m ready'],
+        ['💜', 'One last practical choice, then we go deeper.', 'Keep going'],
+        ['🫶', 'Your answer says something beautiful about your heart.', 'Next feeling'],
+        ['🌈', 'There is no perfect way to be a mother.', 'Next hope'],
+        ['🤍', 'You do not have to carry this journey alone.', 'Almost there'],
+        ['💌', 'This little message can become a gift for your baby.', 'One more'],
+        ['🌟', 'Your hope is the beginning of something beautiful.', 'Enter my space']
+      ];
+      let onboardingStepIndex = 0;
+
+      function updateOnboardingStep() {
+        onboardingSteps.forEach((step, index) => {
+          step.hidden = index !== onboardingStepIndex;
+        });
+
+        const stepNumber = onboardingStepIndex + 1;
+        const [momentIcon, momentCopy, nextLabel] = onboardingMoments[onboardingStepIndex];
+        onboardingStepLabel.textContent = `Question ${stepNumber} of ${onboardingSteps.length}`;
+        onboardingProgressFill.style.width = `${stepNumber / onboardingSteps.length * 100}%`;
+        onboardingWelcomeMark.textContent = momentIcon;
+        onboardingMood.textContent = momentCopy;
+        onboardingPrevious.hidden = onboardingStepIndex === 0;
+        onboardingNext.innerHTML = onboardingStepIndex === onboardingSteps.length - 1
+          ? `${nextLabel} <span aria-hidden="true">›</span>`
+          : `${nextLabel} <span aria-hidden="true">›</span>`;
+      }
+
+      function completeOnboarding() {
+        const formData = new FormData(onboardingForm);
+        const onboardingAnswers = Object.fromEntries(formData.entries());
+        localStorage.setItem('futureBabyOnboarding', JSON.stringify(onboardingAnswers));
+        launchConfetti();
+        showPage('home', false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function launchConfetti() {
+        const colors = ['#ff69ae', '#7547ed', '#56c7ec', '#f5be44', '#77d49b'];
+        const burst = document.createElement('div');
+        burst.className = 'confetti-burst';
+
+        for (let index = 0; index < 36; index += 1) {
+          const piece = document.createElement('span');
+          piece.className = 'confetti-piece';
+          piece.style.setProperty('--confetti-color', colors[index % colors.length]);
+          piece.style.setProperty('--confetti-x', `${Math.round((Math.random() - 0.5) * 100)}vw`);
+          piece.style.setProperty('--confetti-rotation', `${Math.round((Math.random() - 0.5) * 900)}deg`);
+          piece.style.setProperty('--confetti-delay', `${Math.random() * 180}ms`);
+          burst.appendChild(piece);
+        }
+
+        document.body.appendChild(burst);
+        setTimeout(() => burst.remove(), 2600);
+      }
+
+      onboardingNext.addEventListener('click', () => {
+        const currentStep = onboardingSteps[onboardingStepIndex];
+        if (!currentStep.querySelector(':invalid')) {
+          if (onboardingStepIndex === onboardingSteps.length - 1) {
+            completeOnboarding();
+          } else {
+            onboardingStepIndex += 1;
+            updateOnboardingStep();
+          }
+        } else {
+          currentStep.querySelector(':invalid').reportValidity();
+        }
+      });
+
+      onboardingPrevious.addEventListener('click', () => {
+        onboardingStepIndex = Math.max(0, onboardingStepIndex - 1);
+        updateOnboardingStep();
+      });
+
+      onboardingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (onboardingForm.checkValidity()) {
+          completeOnboarding();
+        }
+      });
+
+      updateOnboardingStep();
+
+      /* Keep the form submission path available for keyboard users. */
+      onboardingForm.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && onboardingStepIndex < onboardingSteps.length - 1) {
+          event.preventDefault();
+          onboardingNext.click();
+        }
       });
 
       const affirmations = [
@@ -2186,7 +4575,54 @@
         reader.readAsDataURL(selectedFile);
       });
 
-      let waterGlasses = 6;
+      const proPlanButtons = document.querySelectorAll('.pro-plan');
+      const proUpgradeButton = document.getElementById('pro-upgrade');
+      const proNote = document.getElementById('pro-note');
+      const proStatValue = document.getElementById('profile-pro-stat-value');
+      let proSelectedPlan = 'monthly';
+
+      function refreshProState() {
+        if (!proMembership) return;
+        proStatValue.textContent = 'Active';
+        proUpgradeButton.textContent = 'You are Pro ✓';
+        proUpgradeButton.disabled = true;
+        proNote.textContent = `Active on the ${proMembership.plan} plan. Thank you for supporting BabyBloom.`;
+      }
+
+      refreshProState();
+
+      proPlanButtons.forEach((planButton) => {
+        planButton.addEventListener('click', () => {
+          if (proMembership) return;
+          proPlanButtons.forEach((button) => {
+            button.classList.toggle('active', button === planButton);
+            button.setAttribute('aria-checked', button === planButton ? 'true' : 'false');
+          });
+          proSelectedPlan = planButton.dataset.plan;
+        });
+      });
+
+      proUpgradeButton.addEventListener('click', () => {
+        proMembership = { plan: proSelectedPlan, date: new Date().toISOString() };
+        localStorage.setItem('futureBabyPro', JSON.stringify(proMembership));
+        refreshProState();
+        applyGalleryFilters();
+      });
+
+      document.getElementById('profile-go-pro').addEventListener('click', () => showPage('pro'));
+      document.getElementById('profile-pro-stat').addEventListener('click', () => showPage('pro'));
+      document.getElementById('header-pro-pill').addEventListener('click', () => showPage('pro'));
+      document.getElementById('pro-back').addEventListener('click', () => showPage('profile'));
+
+      const waterStorageKey = 'futureBabyWaterLog';
+      let currentWaterDate = new Date().toISOString().slice(0, 10);
+      const storedWaterLog = JSON.parse(localStorage.getItem(waterStorageKey) || 'null');
+      let waterGlasses = storedWaterLog && storedWaterLog.date === currentWaterDate ? storedWaterLog.glasses : 0;
+
+      function saveWaterLog() {
+        localStorage.setItem(waterStorageKey, JSON.stringify({ date: currentWaterDate, glasses: waterGlasses }));
+      }
+
       function updateWater() {
         const waterProgress = document.querySelector('.nutrition-meter');
         const waterMessage = document.getElementById('water-message');
@@ -2201,14 +4637,32 @@
           : `${glassesLeft} ${glassesLeft === 1 ? 'glass' : 'glasses'} to go. You are doing great.`;
       }
 
+      function checkWaterDailyReset() {
+        const nowDate = new Date().toISOString().slice(0, 10);
+        if (nowDate === currentWaterDate) return;
+        currentWaterDate = nowDate;
+        waterGlasses = 0;
+        updateWater();
+        saveWaterLog();
+      }
+
+      updateWater();
+      saveWaterLog();
+      setInterval(checkWaterDailyReset, 30000);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) checkWaterDailyReset();
+      });
+
       document.getElementById('water-add').addEventListener('click', () => {
         waterGlasses = Math.min(8, waterGlasses + 1);
         updateWater();
+        saveWaterLog();
       });
 
       document.getElementById('water-remove').addEventListener('click', () => {
         waterGlasses = Math.max(0, waterGlasses - 1);
         updateWater();
+        saveWaterLog();
       });
 
       const plateChecks = document.querySelectorAll('.plate-check');
@@ -2220,7 +4674,7 @@
       plateChecks.forEach((check) => check.addEventListener('change', updatePlateCount));
       updateWater();
 
-      showPage('home', false);
+      showPage(localStorage.getItem('futureBabyOnboarding') ? 'home' : 'onboarding', false);
     </script>
 
 </body></html>
