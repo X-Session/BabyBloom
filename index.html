@@ -204,6 +204,7 @@
 
       .onboarding-field input[type="number"],
       .onboarding-field input[type="text"],
+      .onboarding-field input[type="email"],
       .onboarding-field textarea {
         width: 100%;
         padding: 12px 14px;
@@ -677,6 +678,27 @@
       .generate-mode.active {
         border-color: #7547ed;
         background: #7547ed;
+        color: #fff;
+      }
+
+      .generate-mode.is-pro-locked {
+        position: relative;
+        padding-right: 44px;
+      }
+
+      .generate-mode.is-pro-locked::after {
+        content: '♛ PRO';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #f5be44;
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .generate-mode.is-pro-locked.active::after {
         color: #fff;
       }
 
@@ -1775,6 +1797,14 @@
         line-height: 1.35;
       }
 
+      .affirmation-card.is-locked {
+        opacity: 0.6;
+      }
+
+      .affirmation-card.is-locked .affirmation-card-text {
+        font-style: italic;
+      }
+
       .affirmation-detail {
         max-width: 920px;
         min-height: 520px;
@@ -2816,6 +2846,7 @@
 
         .content {
           padding-top: 8px;
+          padding-bottom: 96px;
         }
 
         .hero {
@@ -3187,7 +3218,7 @@
             <h1 class="onboarding-title" id="onboarding-title">Let’s make this feel personal.</h1>
             <p class="onboarding-copy">A few gentle questions help us shape your baby journey. There are no right answers, and you can change your choices later.</p>
             <div class="onboarding-progress" aria-live="polite">
-              <span id="onboarding-step-label">Question 1 of 10</span>
+              <span id="onboarding-step-label">Question 1 of 11</span>
               <span class="onboarding-progress-track"><span class="onboarding-progress-fill" id="onboarding-progress-fill"></span></span>
             </div>
             <p class="onboarding-mood" id="onboarding-mood">No pressure, just a tiny first step.</p>
@@ -3298,6 +3329,19 @@
                 <div class="onboarding-field">
                   <label for="onboarding-hope">Your hope</label>
                   <input id="onboarding-hope" name="hope" type="text" maxlength="120" placeholder="A healthy, joyful future..." required>
+                </div>
+              </div>
+
+              <div class="onboarding-step" data-step="10" hidden>
+                <h2 class="onboarding-step-title">Almost done — how can we reach you?</h2>
+                <p class="onboarding-step-hint">We'll use this to save your FutureBaby space.</p>
+                <div class="onboarding-field">
+                  <label for="onboarding-name">Your name</label>
+                  <input id="onboarding-name" name="name" type="text" maxlength="80" placeholder="Your name" autocomplete="name" required>
+                </div>
+                <div class="onboarding-field">
+                  <label for="onboarding-email">Your email</label>
+                  <input id="onboarding-email" name="email" type="email" maxlength="120" placeholder="you@example.com" autocomplete="email" required>
                 </div>
               </div>
 
@@ -3454,7 +3498,6 @@
         <section class="gallery-section page-section" id="gallery-section" data-pages="gallery favorites" aria-labelledby="gallery-title">
           <div class="gallery-heading">
             <h2 class="gallery-title" id="gallery-title">Beautiful Baby Gallery</h2>
-            <a class="gallery-view-all" href="#gallery">View All <span aria-hidden="true">›</span></a>
           </div>
           <div class="gallery-generate-cta">
             <div class="gallery-generate-copy">
@@ -3475,7 +3518,7 @@
           <p class="gallery-hint">Scroll through the babies and double-tap to favorite.</p>
           <div class="gallery-list" id="gallery">
             <article class="gallery-card" data-baby-type="bow">
-              <img src="images/generated-baby-1.jpg" alt="Generated baby wearing a pink bow" />
+              <img src="babys/generated-baby-1.jpg" alt="Generated baby wearing a pink bow" />
               <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
@@ -3483,7 +3526,7 @@
               </div>
             </article>
             <article class="gallery-card" data-baby-type="curly">
-              <img src="images/generated-baby-2.jpg" alt="Generated curly-haired baby" />
+              <img src="babys/generated-baby-2.jpg" alt="Generated curly-haired baby" />
               <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
@@ -3491,7 +3534,7 @@
               </div>
             </article>
             <article class="gallery-card" data-baby-type="cozy">
-              <img src="images/generated-baby-3.jpg" alt="Generated baby wearing a soft hood" />
+              <img src="babys/generated-baby-3.jpg" alt="Generated baby wearing a soft hood" />
               <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
@@ -3499,7 +3542,39 @@
               </div>
             </article>
             <article class="gallery-card" data-baby-type="cozy">
-              <img src="images/generated-baby-4.jpg" alt="Generated baby in a cream outfit" />
+              <img src="babys/generated-baby-4.jpg" alt="Generated baby in a cream outfit" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
+            </article>
+            <article class="gallery-card" data-baby-type="bow">
+              <img src="babys/generated-baby-5.jpg" alt="Generated baby wearing a pink bow" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
+            </article>
+            <article class="gallery-card" data-baby-type="curly">
+              <img src="babys/generated-baby-6.jpg" alt="Generated curly-haired baby" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
+            </article>
+            <article class="gallery-card" data-baby-type="cozy">
+              <img src="babys/generated-baby-7.jpg" alt="Generated baby wearing a soft hood" />
+              <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+              <div class="gallery-reactions" aria-label="React to this baby">
+                <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
+                <button class="gallery-reaction" type="button" data-reaction="cute">Cute 0</button>
+              </div>
+            </article>
+            <article class="gallery-card" data-baby-type="cozy">
+              <img src="babys/generated-baby-8.jpg" alt="Generated baby in a cream outfit" />
               <button class="gallery-favorite" type="button" aria-label="Favorite this baby"><span class="heart-icon" aria-hidden="true"></span></button>
               <div class="gallery-reactions" aria-label="React to this baby">
                 <button class="gallery-reaction" type="button" data-reaction="love">♡ 0</button>
@@ -3521,25 +3596,49 @@
         <div class="gallery-feed" id="gallery-feed" role="dialog" aria-modal="true" aria-label="Full-screen baby viewer" hidden>
           <button class="gallery-feed-close" id="gallery-feed-close" type="button" aria-label="Close full-screen viewer">×</button>
           <div class="gallery-feed-slide" data-feed-index="0">
-            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-1.jpg" alt="Baby wearing a pink bow"></div>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-1.jpg" alt="Baby wearing a pink bow"></div>
             <div class="gallery-feed-actions">
               <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <div class="gallery-feed-slide" data-feed-index="1" hidden>
-            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-2.jpg" alt="Curly-haired baby"></div>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-2.jpg" alt="Curly-haired baby"></div>
             <div class="gallery-feed-actions">
               <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <div class="gallery-feed-slide" data-feed-index="2" hidden>
-            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-3.jpg" alt="Baby wearing a soft hood"></div>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-3.jpg" alt="Baby wearing a soft hood"></div>
             <div class="gallery-feed-actions">
               <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
           </div>
           <div class="gallery-feed-slide" data-feed-index="3" hidden>
-            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="images/generated-baby-4.jpg" alt="Baby in a cream outfit"></div>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-4.jpg" alt="Baby in a cream outfit"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="4" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-5.jpg" alt="Baby wearing a pink bow"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="5" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-6.jpg" alt="Curly-haired baby"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="6" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-7.jpg" alt="Baby wearing a soft hood"></div>
+            <div class="gallery-feed-actions">
+              <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
+            </div>
+          </div>
+          <div class="gallery-feed-slide" data-feed-index="7" hidden>
+            <div class="gallery-feed-image-wrap"><img class="gallery-feed-image" src="babys/generated-baby-8.jpg" alt="Baby in a cream outfit"></div>
             <div class="gallery-feed-actions">
               <button class="gallery-feed-like" type="button" aria-label="Like this baby"><span class="heart-icon" aria-hidden="true"></span></button>
             </div>
@@ -3573,8 +3672,8 @@
           <input id="profile-image-input" type="file" accept="image/*" hidden />
 
           <div class="profile-stats" aria-label="Profile summary">
-            <div class="profile-stat"><strong>12</strong><span>Favorites</span></div>
-            <div class="profile-stat"><strong>8</strong><span>Affirmations</span></div>
+            <div class="profile-stat"><strong>0</strong><span>Favorites</span></div>
+            <div class="profile-stat"><strong>0</strong><span>Affirmations</span></div>
             <button class="profile-stat profile-stat-link" id="profile-pro-stat" type="button"><strong id="profile-pro-stat-value">Pro</strong><span>Membership</span></button>
           </div>
 
@@ -3608,11 +3707,12 @@
           </div>
 
           <div class="pro-features" aria-label="Pro features">
-            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">✦</span><span>Unlimited baby generations, every day</span></div>
-            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">◆</span><span>No watermark on your generated photos</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">✦</span><span>See exactly how your future baby will look</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">❀</span><span>Unlimited baby, pregnancy &amp; family photo generations</span></div>
             <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">⚡</span><span>Priority processing, faster results</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">✺</span><span>Unlock 100+ exclusive affirmations &amp; daily visualizations</span></div>
+            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">◆</span><span>No watermark on your generated photos</span></div>
             <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">⌕</span><span>Full gallery search and unlimited favorites</span></div>
-            <div class="pro-feature"><span class="pro-feature-icon" aria-hidden="true">✾</span><span>Exclusive affirmations and daily visualizations</span></div>
           </div>
 
           <div class="pro-plans" role="radiogroup" aria-label="Choose a Pro plan">
@@ -3634,7 +3734,8 @@
         <section class="affirmation page-section" id="affirmation-section" data-pages="home affirmation" aria-label="Affirmation page" aria-labelledby="affirmation-title">
           <div class="affirmation-copy">
             <h2 class="affirmation-title" id="affirmation-title">Daily Baby Affirmation&nbsp; ♥</h2>
-            <p class="affirmation-text">I welcome a beautiful, healthy<br />and loving baby into my future. 💜</p>
+           <br>
+           <br>
             <button class="affirmation-button" id="affirmation-button" type="button">New Affirmation <span aria-hidden="true">›</span></button>
           </div>
         </section>
@@ -3813,13 +3914,56 @@
       const galleryEmpty = document.getElementById('gallery-empty');
       const galleryFavorites = JSON.parse(localStorage.getItem('futureBabyGalleryFavorites') || '[]');
       let galleryActiveFilter = 'all';
+
+      /* Visit index.html?pro=off (or ?pro=on) to toggle Pro without opening dev tools. */
+      const debugParams = new URLSearchParams(window.location.search);
+      if (debugParams.get('pro') === 'off') {
+        localStorage.removeItem('futureBabyPro');
+      } else if (debugParams.get('pro') === 'on') {
+        localStorage.setItem('futureBabyPro', JSON.stringify({ plan: 'monthly', date: new Date().toISOString() }));
+      }
+
       let proMembership = JSON.parse(localStorage.getItem('futureBabyPro') || 'null');
 
       function isProMember() {
         return Boolean(proMembership);
       }
 
-      const GALLERY_PAGE_SIZE = 3;
+      /* Shared profile record, kept in sync for a future Supabase sync (name, email, pro status, generation count). */
+      const PROFILE_KEY = 'futureBabyProfile';
+      const profileNameInput = document.getElementById('profile-name');
+      const profileEmailInput = document.getElementById('profile-email');
+
+      function loadProfile() {
+        try {
+          return JSON.parse(localStorage.getItem(PROFILE_KEY) || '{}');
+        } catch (error) {
+          return {};
+        }
+      }
+
+      function applyProfileToUI(profile) {
+        if (profile.name) profileNameInput.value = profile.name;
+        if (profile.email) profileEmailInput.value = profile.email;
+      }
+
+      function saveProfile(patch) {
+        const profile = {
+          ...loadProfile(),
+          ...patch,
+          isPro: isProMember(),
+          updatedAt: new Date().toISOString()
+        };
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+        applyProfileToUI(profile);
+        return profile;
+      }
+
+      applyProfileToUI(loadProfile());
+      profileNameInput.addEventListener('change', () => saveProfile({ name: profileNameInput.value }));
+      profileEmailInput.addEventListener('change', () => saveProfile({ email: profileEmailInput.value }));
+
+      const GALLERY_PAGE_SIZE = 4;
       let galleryVisibleLimit = GALLERY_PAGE_SIZE;
       const galleryLoadMore = document.getElementById('gallery-load-more');
       const galleryLoadMoreButton = document.getElementById('gallery-load-more-button');
@@ -3907,6 +4051,7 @@
         const images = loadGeneratedImages();
         images.unshift({ url, mode, createdAt: Date.now() });
         saveGeneratedImages(images);
+        saveProfile({ generationsCount: (loadProfile().generationsCount || 0) + 1 });
         renderGeneratedImagesInGallery();
         applyGalleryFilters();
       }
@@ -4154,18 +4299,51 @@
           copy: 'Upload two clear photos, and we will create a pregnancy photoshoot for the two of you.',
           submit: 'Generate pregnancy photo ✨',
           status: 'Choose two photos to begin.',
-          usesPhotos: true
+          usesPhotos: true,
+          proOnly: true
         },
         family: {
           title: 'Imagine your happy family',
           copy: 'Upload two clear photos to see the two of you joyfully holding your future baby.',
           submit: 'Generate family photo ✨',
           status: 'Choose two photos to begin.',
-          usesPhotos: true
+          usesPhotos: true,
+          proOnly: true
         }
       };
 
+      /* Free accounts get one baby/description generation per day; Pro is unlimited. */
+      const FREE_DAILY_GENERATIONS = 1;
+      const dailyGenerationStorageKey = 'futureBabyDailyGenerations';
+
+      function loadDailyGenerationState() {
+        const today = new Date().toISOString().slice(0, 10);
+        const stored = JSON.parse(localStorage.getItem(dailyGenerationStorageKey) || 'null');
+        return stored && stored.date === today ? stored : { date: today, count: 0 };
+      }
+
+      function recordDailyGeneration() {
+        const state = loadDailyGenerationState();
+        state.count += 1;
+        localStorage.setItem(dailyGenerationStorageKey, JSON.stringify(state));
+      }
+
+      function hasFreeGenerationsLeft() {
+        return isProMember() || loadDailyGenerationState().count < FREE_DAILY_GENERATIONS;
+      }
+
+      function refreshGenerateModeAccess() {
+        generateModeButtons.forEach((button) => {
+          const requiresPro = Boolean(generateModeCopy[button.dataset.generateMode].proOnly);
+          button.classList.toggle('is-pro-locked', requiresPro && !isProMember());
+        });
+      }
+
       function setGenerateMode(mode) {
+        if (generateModeCopy[mode].proOnly && !isProMember()) {
+          showPage('pro');
+          return;
+        }
         const usesPhotos = generateModeCopy[mode].usesPhotos;
         generateModeInput.value = mode;
         generateModeButtons.forEach((button) => button.classList.toggle('active', button.dataset.generateMode === mode));
@@ -4184,6 +4362,7 @@
       generateModeButtons.forEach((button) => {
         button.addEventListener('click', () => setGenerateMode(button.dataset.generateMode));
       });
+      refreshGenerateModeAccess();
 
       document.getElementById('future-family-pregnancy-button').addEventListener('click', () => {
         setGenerateMode('pregnancy');
@@ -4205,8 +4384,11 @@
         const isReady = generateModeCopy[mode].usesPhotos
           ? photoInputs.every(({ input }) => input.files.length > 0)
           : generateDescription.value.trim().length > 0;
-        generateSubmit.disabled = !isReady;
-        if (isReady && announce) {
+        const limitReached = !generateModeCopy[mode].proOnly && !hasFreeGenerationsLeft();
+        generateSubmit.disabled = !isReady || limitReached;
+        if (limitReached) {
+          generateStatus.textContent = 'You have used today’s free generation. Upgrade to Pro for unlimited baby photos.';
+        } else if (isReady && announce) {
           generateStatus.textContent = generateModeCopy[mode].usesPhotos
             ? 'Two photos ready. Let’s make something beautiful.'
             : 'Description ready. Let’s make something beautiful.';
@@ -4323,6 +4505,14 @@
       generateForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         const mode = generateModeInput.value;
+        if (generateModeCopy[mode].proOnly && !isProMember()) {
+          showPage('pro');
+          return;
+        }
+        if (!hasFreeGenerationsLeft()) {
+          updateGenerateState(false);
+          return;
+        }
         const isReady = generateModeCopy[mode].usesPhotos
           ? photoInputs.every(({ input }) => input.files.length > 0)
           : generateDescription.value.trim().length > 0;
@@ -4358,6 +4548,7 @@
           generateResult.src = imageUrl;
           generateResult.classList.add('visible');
           addGeneratedImage(imageUrl, mode);
+          if (!isProMember()) recordDailyGeneration();
           openGenerateModal(imageUrl);
           setGenerateProgress(100, 'Generation complete');
           generateStatus.textContent = 'Your baby image is ready. ✨';
@@ -4392,7 +4583,8 @@
         ['🌈', 'There is no perfect way to be a mother.', 'Next hope'],
         ['🤍', 'You do not have to carry this journey alone.', 'Almost there'],
         ['💌', 'This little message can become a gift for your baby.', 'One more'],
-        ['🌟', 'Your hope is the beginning of something beautiful.', 'Enter my space']
+        ['🌟', 'Your hope is the beginning of something beautiful.', 'Almost done'],
+        ['💌', "Just one more step to save your space.", 'Enter my space']
       ];
       let onboardingStepIndex = 0;
 
@@ -4417,6 +4609,7 @@
         const formData = new FormData(onboardingForm);
         const onboardingAnswers = Object.fromEntries(formData.entries());
         localStorage.setItem('futureBabyOnboarding', JSON.stringify(onboardingAnswers));
+        saveProfile({ name: onboardingAnswers.name, email: onboardingAnswers.email });
         launchConfetti();
         showPage('home', false);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4510,18 +4703,40 @@
         'My baby and I are connected by love, hope, and tenderness.'
       ];
 
+      /* First few affirmations are free; the rest unlock with Pro. */
+      const FREE_AFFIRMATION_COUNT = 6;
+
       const affirmationGrid = document.getElementById('affirmation-grid');
       affirmations.forEach((affirmation, index) => {
         const card = document.createElement('button');
         card.className = 'affirmation-card';
         card.type = 'button';
-        card.innerHTML = `<span class="affirmation-card-number">${index + 1}</span><span class="affirmation-card-text">${affirmation}</span>`;
-        card.addEventListener('click', () => openAffirmation(index));
+        card.innerHTML = '<span class="affirmation-card-number"></span><span class="affirmation-card-text"></span>';
+        card.addEventListener('click', () => {
+          if (card.classList.contains('is-locked')) {
+            showPage('pro');
+            return;
+          }
+          openAffirmation(index);
+        });
         affirmationGrid.appendChild(card);
       });
 
+      function refreshAffirmationLocks() {
+        const memberIsPro = isProMember();
+        affirmationGrid.querySelectorAll('.affirmation-card').forEach((card, index) => {
+          const isLocked = !memberIsPro && index >= FREE_AFFIRMATION_COUNT;
+          card.classList.toggle('is-locked', isLocked);
+          card.querySelector('.affirmation-card-number').textContent = index + 1;
+          card.querySelector('.affirmation-card-text').textContent = isLocked ? 'Unlock with Pro ✦' : affirmations[index];
+        });
+      }
+
+      refreshAffirmationLocks();
+
       document.getElementById('affirmation-surprise').addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * affirmations.length);
+        const pool = isProMember() ? affirmations : affirmations.slice(0, FREE_AFFIRMATION_COUNT);
+        const randomIndex = Math.floor(Math.random() * pool.length);
         openAffirmation(randomIndex);
       });
 
@@ -4612,8 +4827,12 @@
       proUpgradeButton.addEventListener('click', () => {
         proMembership = { plan: proSelectedPlan, date: new Date().toISOString() };
         localStorage.setItem('futureBabyPro', JSON.stringify(proMembership));
+        saveProfile({ proPlan: proSelectedPlan });
         refreshProState();
         applyGalleryFilters();
+        refreshGenerateModeAccess();
+        updateGenerateState(false);
+        refreshAffirmationLocks();
       });
 
       document.getElementById('profile-go-pro').addEventListener('click', () => showPage('pro'));
