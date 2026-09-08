@@ -1,7 +1,4 @@
 video short
-sort like image swioing
 and nutritions guid
 set your cradit limit on replicate or your server   
 there should be a buti section
-fix the react icon
-move the genarate baby from the descriontion

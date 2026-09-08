@@ -861,6 +861,24 @@
         font-size: 0.8rem;
       }
 
+      .generate-upgrade-button {
+        justify-self: start;
+        padding: 12px 22px;
+        border: 0;
+        border-radius: 999px;
+        background: linear-gradient(100deg, #ff629a, #7547ee);
+        color: #fff;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(117, 71, 237, 0.2);
+      }
+
+      .generate-upgrade-button[hidden] {
+        display: none;
+      }
+
       .generate-progress-panel {
         display: none;
         gap: 10px;
@@ -3430,6 +3448,7 @@
             </div>
             <button class="generate-submit" id="generate-submit" type="submit" disabled>Generate our baby ✨</button>
             <p class="generate-status" id="generate-status" role="status" aria-live="polite">Choose two photos to begin.</p>
+            <button class="generate-upgrade-button" id="generate-upgrade-button" type="button" hidden>Subscribe for unlimited babies ✦</button>
             <div class="generate-progress-panel" id="generate-progress-panel" aria-live="polite">
               <div class="generate-progress-heading"><span id="generate-progress-stage">Waiting to start</span><span id="generate-progress-percent">0%</span></div>
               <div class="generate-progress-track" role="progressbar" aria-label="Baby image generation progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="generate-progress-fill" id="generate-progress-fill"></span></div>
@@ -4274,6 +4293,7 @@
       const apiBaseUrl = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
       const generateModeButtons = document.querySelectorAll('.generate-mode');
       const generateModeInput = document.getElementById('generate-mode-input');
+      const generateUpgradeButton = document.getElementById('generate-upgrade-button');
       const generateTitle = document.getElementById('generate-title');
       const generateCopy = document.getElementById('generate-copy');
       const generateUploadGrid = document.getElementById('generate-upload-grid');
@@ -4386,6 +4406,8 @@
           : generateDescription.value.trim().length > 0;
         const limitReached = !generateModeCopy[mode].proOnly && !hasFreeGenerationsLeft();
         generateSubmit.disabled = !isReady || limitReached;
+        generateSubmit.hidden = limitReached;
+        generateUpgradeButton.hidden = !limitReached;
         if (limitReached) {
           generateStatus.textContent = 'You have used today’s free generation. Upgrade to Pro for unlimited baby photos.';
         } else if (isReady && announce) {
@@ -4396,6 +4418,9 @@
       }
 
       generateDescription.addEventListener('input', () => updateGenerateState());
+
+      generateUpgradeButton.addEventListener('click', () => showPage('pro'));
+      updateGenerateState(false);
 
       function setGenerateProgress(percent, stage) {
         const funMessages = {
