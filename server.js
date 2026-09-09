@@ -66,6 +66,11 @@ app.post('/api/log-event', async (request, response) => {
   try {
     await fs.mkdir(logsDir, { recursive: true });
     await fs.appendFile(path.join(logsDir, fileName), `${JSON.stringify(entry)}\n`, 'utf8');
+
+    if (entry.event === 'new_visitor') {
+      await fs.appendFile(path.join(logsDir, '_new-visitors.log'), `${JSON.stringify({ ...entry, visitorId: safeVisitorId })}\n`, 'utf8');
+    }
+
     return response.json({ ok: true });
   } catch (error) {
     console.error('Failed to write activity log:', error.message);

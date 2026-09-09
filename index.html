@@ -4019,6 +4019,7 @@
       const LOG_API_BASE = window.location.protocol === 'file:' ? 'https://www.futurebabys.com' : '';
       const VISITOR_ID_KEY = 'futureBabyVisitorId';
       let visitorId = localStorage.getItem(VISITOR_ID_KEY);
+      const isNewVisitor = !visitorId;
       if (!visitorId) {
         visitorId = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
         localStorage.setItem(VISITOR_ID_KEY, visitorId);
@@ -4044,6 +4045,10 @@
             page: window.location.href
           })
         }).catch(() => {});
+      }
+
+      if (isNewVisitor) {
+        logEvent('new_visitor', { referrer: document.referrer || null, language: navigator.language, userAgent: navigator.userAgent });
       }
 
       const pageSections = document.querySelectorAll('.page-section');
