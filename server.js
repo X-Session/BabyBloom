@@ -13,6 +13,7 @@ const port = Number(process.env.PORT || 4000);
 const maxFileSize = 10 * 1024 * 1024;
 const allowedMimeTypes = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const generatedImagesDir = path.join(__dirname, 'images', 'generated');
+const logsDir = path.join(__dirname, 'logs');
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -24,7 +25,54 @@ const upload = multer({
 
 app.use(cors({ origin: process.env.CORS_ORIGIN || true }));
 app.use(express.json({ limit: '1mb' }));
+
+// Keep the activity logs out of the public static file server (they can contain visitor names/emails).
+app.use((request, response, next) => {
+  if (request.path === '/logs' || request.path.startsWith('/logs/')) return response.status(404).end();
+  next();
+});
+
 app.use(express.static(__dirname));
+
+function sanitizeForFilename(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60);
+}
+
+app.post('/api/log-event', async (request, response) => {
+  const { visitorId, name, email, event, details, page } = request.body || {};
+
+  if (!visitorId || typeof visitorId !== 'string' || !event || typeof event !== 'string') {
+    return response.status(400).json({ error: 'visitorId and event are required.' });
+  }
+
+  const safeVisitorId = sanitizeForFilename(visitorId) || 'unknown';
+  const safeName = sanitizeForFilename(name) || 'guest';
+  const fileName = `${safeName}-${safeVisitorId.slice(0, 8)}.log`;
+
+  const entry = {
+    timestamp: new Date().toISOString(),
+    event: String(event).slice(0, 80),
+    name: typeof name === 'string' ? name.slice(0, 120) : undefined,
+    email: typeof email === 'string' ? email.slice(0, 160) : undefined,
+    page: typeof page === 'string' ? page.slice(0, 300) : undefined,
+    details: details && typeof details === 'object' ? details : undefined,
+  };
+
+  try {
+    await fs.mkdir(logsDir, { recursive: true });
+    await fs.appendFile(path.join(logsDir, fileName), `${JSON.stringify(entry)}\n`, 'utf8');
+    return response.json({ ok: true });
+  } catch (error) {
+    console.error('Failed to write activity log:', error.message);
+    return response.status(500).json({ error: 'Could not save log entry.' });
+  }
+});
+
 
 function fileToDataUrl(file) {
   return `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;

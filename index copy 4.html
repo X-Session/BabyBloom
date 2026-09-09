@@ -391,6 +391,7 @@
         position: relative;
         width: 60px;
         height: 60px;
+        border-radius: 18px;
         display: grid;
         place-items: center;
         flex-shrink: 0;
@@ -1128,82 +1129,6 @@
         line-height: 0.7;
       }
 
-      .gallery-section-tabs {
-        display: flex;
-        gap: 8px;
-        padding: 0 36px 16px;
-      }
-
-      .gallery-section-tab {
-        flex: 1;
-        padding: 10px 16px;
-        border: 1px solid rgba(117, 71, 237, 0.16);
-        border-radius: 999px;
-        background: #fff;
-        color: var(--muted);
-        font: inherit;
-        font-size: 0.84rem;
-        font-weight: 800;
-        cursor: pointer;
-      }
-
-      .gallery-section-tab.active {
-        border-color: #7547ed;
-        background: #7547ed;
-        color: #fff;
-      }
-
-      .gallery-section-tab .pro-tag {
-        margin-left: 6px;
-        color: #f5be44;
-        font-size: 0.7rem;
-        font-weight: 800;
-      }
-
-      .gallery-section-tab.active .pro-tag {
-        color: #ffe9a8;
-      }
-
-      .gallery-videos {
-        display: grid;
-        justify-items: center;
-        gap: 12px;
-        margin: 0 36px 24px;
-        padding: 36px 24px;
-        border-radius: 20px;
-        background: linear-gradient(135deg, #f4edff, #fff0f6);
-        border: 1px solid rgba(117, 71, 237, 0.16);
-        text-align: center;
-      }
-
-      .gallery-videos[hidden] {
-        display: none;
-      }
-
-      .gallery-videos-crown {
-        display: grid;
-        place-items: center;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        background: linear-gradient(145deg, #7547ed, #ff5b93);
-        color: #fff;
-        font-size: 1.6rem;
-      }
-
-      .gallery-videos h3 {
-        margin: 0;
-        color: var(--text);
-        font-size: 1.1rem;
-      }
-
-      .gallery-videos p {
-        margin: 0;
-        max-width: 360px;
-        color: var(--muted);
-        font-size: 0.86rem;
-      }
-
       .gallery-tools {
         display: flex;
         gap: 8px;
@@ -1732,7 +1657,7 @@
         overflow: hidden;
         padding: 28px 30px;
         border-radius: 28px;
-        background: linear-gradient(135deg, rgba(117, 71, 237, 0.68), rgba(255, 138, 103, 0.6)), url('images/future-family.jpg') no-repeat center / cover;
+        background: linear-gradient(135deg, #7547ed, #ff8a67);
         color: #fff;
       }
 
@@ -2913,7 +2838,7 @@
         width: 66px;
         height: 66px;
         border-radius: 50%;
-        background: linear-gradient(0deg, #ff5ca1, #f4f1f5);
+        background: linear-gradient(145deg, #ff5ca1, #b843e3);
         color: #fff;
         box-shadow: 0 8px 18px rgba(194, 66, 218, 0.28);
         font-size: 2.25rem;
@@ -3078,14 +3003,6 @@
 
         .gallery-tools {
           padding: 0 18px 12px;
-        }
-
-        .gallery-section-tabs {
-          padding: 0 18px 12px;
-        }
-
-        .gallery-videos {
-          margin: 0 18px 24px;
         }
 
         .gallery-generate-cta {
@@ -3300,10 +3217,6 @@
           width: 27px;
           height: 27px;
         }
-     .nav-image-icon.genarate{
-          width: 55px;
-          height: 55px;
-        }
 
         .nav-item.generate {
           margin-top: -24px;
@@ -3493,7 +3406,7 @@
         <section class="hero page-section" id="home" data-pages="home" aria-labelledby="hero-title">
           <div class="hero-copy">
             <h1 class="hero-title" id="hero-title">
-              Menifest Your
+              Imagine Your
               <span>Future Baby</span>
             </h1>
 
@@ -3637,13 +3550,13 @@
           <div class="gallery-heading">
             <h2 class="gallery-title" id="gallery-title">Beautiful Baby Gallery</h2>
           </div>
-
-          <div class="gallery-section-tabs" role="tablist" aria-label="Gallery sections">
-            <button class="gallery-section-tab active" type="button" data-gallery-section="photos">Photos</button>
-            <button class="gallery-section-tab" type="button" data-gallery-section="videos">Videos <span class="pro-tag" aria-hidden="true">♛ PRO</span></button>
+          <div class="gallery-generate-cta">
+            <div class="gallery-generate-copy">
+              <strong>Create your own baby</strong>
+              <span>Upload two photos and generate a brand-new baby portrait.</span>
+            </div>
+            <button class="gallery-generate-button" id="gallery-generate-action" type="button">Generate baby <span aria-hidden="true">✦</span></button>
           </div>
-
-          <div class="gallery-photos" id="gallery-photos">
 
           <div class="gallery-tools" role="tablist" aria-label="Baby gallery filters">
             <button class="gallery-filter active" type="button" data-gallery-filter="all">All babies</button>
@@ -3728,14 +3641,6 @@
               <p>You've reached the free preview limit.</p>
               <button class="gallery-upgrade-button" id="gallery-upgrade-button" type="button">Subscribe to see more babies ✦</button>
             </div>
-          </div>
-          </div>
-
-          <div class="gallery-videos" id="gallery-videos" hidden>
-            <span class="gallery-videos-crown" aria-hidden="true">♛</span>
-            <h3>Baby videos are a Pro feature</h3>
-            <p>Bring your future baby to life with short AI-generated videos. Upgrade to Pro to unlock this feature.</p>
-            <button class="gallery-upgrade-button" id="gallery-video-upgrade" type="button">Subscribe to unlock videos ✦</button>
           </div>
         </section>
 
@@ -3862,11 +3767,11 @@
           </div>
 
           <div class="pro-plans" role="radiogroup" aria-label="Choose a Pro plan">
-            <button class="pro-plan active" type="button" data-plan="monthly" data-checkout-url="https://xsession-shop.fourthwall.com/products/futurebaby" role="radio" aria-checked="true">
+            <button class="pro-plan active" type="button" data-plan="monthly" role="radio" aria-checked="true">
               <span class="pro-plan-name">Monthly</span>
-              <span class="pro-plan-price">$5<small>/mo</small></span>
+              <span class="pro-plan-price">$4.99<small>/mo</small></span>
             </button>
-            <button class="pro-plan" type="button" data-plan="yearly" data-checkout-url="https://xsession-shop.fourthwall.com/products/pro-futurebaby" role="radio" aria-checked="false">
+            <button class="pro-plan" type="button" data-plan="yearly" role="radio" aria-checked="false">
               <span class="pro-plan-badge">Best value</span>
               <span class="pro-plan-name">Yearly</span>
               <span class="pro-plan-price">$39.99<small>/yr</small></span>
@@ -3874,7 +3779,7 @@
           </div>
 
           <button class="pro-upgrade" id="pro-upgrade" type="button">Upgrade to Pro <span aria-hidden="true">✦</span></button>
-          <p class="pro-note" id="pro-note">You'll be taken to checkout to complete your subscription.</p>
+          <p class="pro-note" id="pro-note">Cancel anytime. No commitment.</p>
         </section>
 
         <section class="affirmation page-section" id="affirmation-section" data-pages="home affirmation" aria-label="Affirmation page" aria-labelledby="affirmation-title">
@@ -4000,7 +3905,7 @@
           <span>Gallery</span>
         </button>
         <button class="nav-item generate" type="button" data-page="generate">
-          <span class="nav-icon" aria-hidden="true"><img class="nav-image-icon genarate" src="icons/generate.png" alt="" /></span>
+          <span class="nav-icon" aria-hidden="true">✦</span>
           <span>Generate</span>
         </button>
         <button class="nav-item" type="button" data-page="nutrition">
@@ -4015,37 +3920,6 @@
     </div>
 
     <script>
-      /* Per-visitor activity log, sent to the Node server so files land in /logs (used to improve the app). */
-      const LOG_API_BASE = window.location.protocol === 'file:' ? 'https://www.futurebabys.com' : '';
-      const VISITOR_ID_KEY = 'futureBabyVisitorId';
-      let visitorId = localStorage.getItem(VISITOR_ID_KEY);
-      if (!visitorId) {
-        visitorId = (crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`);
-        localStorage.setItem(VISITOR_ID_KEY, visitorId);
-      }
-
-      function logEvent(event, details) {
-        let profile = {};
-        try {
-          profile = JSON.parse(localStorage.getItem('futureBabyProfile') || '{}');
-        } catch (error) {
-          profile = {};
-        }
-
-        fetch(`${LOG_API_BASE}/api/log-event`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            visitorId,
-            name: profile.name,
-            email: profile.email,
-            event,
-            details,
-            page: window.location.href
-          })
-        }).catch(() => {});
-      }
-
       const pageSections = document.querySelectorAll('.page-section');
       const navItems = document.querySelectorAll('.nav-item, .desktop-nav-item');
 
@@ -4079,8 +3953,6 @@
             block: 'start'
           });
         }
-
-        logEvent('page_view', { pageName });
       }
 
       navItems.forEach((item) => {
@@ -4093,26 +3965,6 @@
       const galleryEmpty = document.getElementById('gallery-empty');
       const galleryFavorites = JSON.parse(localStorage.getItem('futureBabyGalleryFavorites') || '[]');
       let galleryActiveFilter = 'all';
-
-      const gallerySectionTabs = document.querySelectorAll('.gallery-section-tab');
-      const galleryPhotosPanel = document.getElementById('gallery-photos');
-      const galleryVideosPanel = document.getElementById('gallery-videos');
-
-      function setGallerySection(section) {
-        if (section === 'videos' && !isProMember()) {
-          showPage('pro');
-          return;
-        }
-        gallerySectionTabs.forEach((tab) => tab.classList.toggle('active', tab.dataset.gallerySection === section));
-        galleryPhotosPanel.hidden = section !== 'photos';
-        galleryVideosPanel.hidden = section !== 'videos';
-      }
-
-      gallerySectionTabs.forEach((tab) => {
-        tab.addEventListener('click', () => setGallerySection(tab.dataset.gallerySection));
-      });
-
-      document.getElementById('gallery-video-upgrade').addEventListener('click', () => showPage('pro'));
 
       /* Visit index.html?pro=off (or ?pro=on) to toggle Pro without opening dev tools. */
       const debugParams = new URLSearchParams(window.location.search);
@@ -4308,7 +4160,6 @@
             .map((galleryCard, cardIndex) => galleryCard.querySelector('.gallery-favorite').classList.contains('is-favorite') ? cardIndex : null)
             .filter((cardIndex) => cardIndex !== null);
           localStorage.setItem('futureBabyGalleryFavorites', JSON.stringify(nextFavorites));
-          logEvent('favorite_toggled', { cardIndex: index, isFavorite: favoriteButton.classList.contains('is-favorite') });
           if (galleryActiveFilter === 'favorite') applyGalleryFilters();
         }
 
@@ -4357,6 +4208,8 @@
       document.getElementById('gallery-upgrade-button').addEventListener('click', () => showPage('pro'));
 
       applyGalleryFilters();
+
+      document.getElementById('gallery-generate-action').addEventListener('click', () => showPage('generate'));
 
       const galleryPreviewCards = [...document.querySelectorAll('#gallery-preview-section .gallery-card')];
       const galleryPreviewViewAll = document.getElementById('gallery-preview-view-all');
@@ -4473,7 +4326,7 @@
       const generateModalClose = document.getElementById('generate-modal-close');
       const generateShare = document.getElementById('generate-share');
       const generateDownload = document.getElementById('generate-download');
-      const apiBaseUrl = window.location.protocol === 'file:' ? 'https://www.futurebabys.com' : '';
+      const apiBaseUrl = window.location.protocol === 'file:' ? 'http://localhost:3000' : '';
       const generateModeButtons = document.querySelectorAll('.generate-mode');
       const generateModeInput = document.getElementById('generate-mode-input');
       const generateUpgradeButton = document.getElementById('generate-upgrade-button');
@@ -4760,7 +4613,6 @@
           openGenerateModal(imageUrl);
           setGenerateProgress(100, 'Generation complete');
           generateStatus.textContent = 'Your baby image is ready. ✨';
-          logEvent('baby_generated', { mode });
         } catch (error) {
           setGenerateProgress(85, 'Generation stopped');
           generateStatus.textContent = error.message === 'Replicate is not configured yet.'
@@ -4819,7 +4671,6 @@
         const onboardingAnswers = Object.fromEntries(formData.entries());
         localStorage.setItem('futureBabyOnboarding', JSON.stringify(onboardingAnswers));
         saveProfile({ name: onboardingAnswers.name, email: onboardingAnswers.email });
-        logEvent('onboarding_completed', onboardingAnswers);
         launchConfetti();
         showPage('home', false);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4958,7 +4809,6 @@
         detailCard.classList.remove('celebrate');
         celebration.hidden = true;
         document.getElementById('affirmation-detail-text').textContent = affirmations[index];
-        logEvent('affirmation_viewed', { index });
         showPage('affirmation-detail');
 
         const affirmationDuration = 60;
@@ -5043,10 +4893,14 @@
       });
 
       proUpgradeButton.addEventListener('click', () => {
-        if (proMembership) return;
-        const checkoutUrl = document.querySelector(`.pro-plan[data-plan="${proSelectedPlan}"]`)?.dataset.checkoutUrl;
-        logEvent('pro_checkout_opened', { plan: proSelectedPlan });
-        if (checkoutUrl) window.open(checkoutUrl, '_blank', 'noopener');
+        proMembership = { plan: proSelectedPlan, date: new Date().toISOString() };
+        localStorage.setItem('futureBabyPro', JSON.stringify(proMembership));
+        saveProfile({ proPlan: proSelectedPlan });
+        refreshProState();
+        applyGalleryFilters();
+        refreshGenerateModeAccess();
+        updateGenerateState(false);
+        refreshAffirmationLocks();
       });
 
       document.getElementById('profile-go-pro').addEventListener('click', () => showPage('pro'));
